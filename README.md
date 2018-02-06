@@ -1,2 +1,11 @@
 # Tempo
-It's a smart scheduling app that includes to-do-list and calender along with 
+It's a smart scheduling app that includes to-do-list and event calender along with some smart time management features which 
+
+Features:
+
+
+Specification:
+
+
+
+
