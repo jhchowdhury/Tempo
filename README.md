@@ -9,9 +9,9 @@ Expected Features:
   Smart feautures:
 
 Expected Specification:                                                                                                                   
-#Java for backend
-#JavaFX for frontend
-#MongoDB/Firebase database for networking
+-Java for backend                                                                                                                         
+-JavaFX for frontend                                                                                                                       
+-MongoDB/Firebase database for networking                                                                                                  
 
 
 
