@@ -1,2 +1,2 @@
 # Tempo
-Best scheduling app ever.
+It's a smart scheduling app
