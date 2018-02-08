@@ -12,7 +12,10 @@ Expected Features:
 Expected Specification:                                                                                                                   
 -Java for backend                                                                                                                         
 -JavaFX for frontend                                                                                                                       
--MongoDB/Firebase database for networking                                                                                                  
+-MongoDB/Firebase database for networking       
+
+Similar applications:
+Cozi - Family Organizer
 
 
 
