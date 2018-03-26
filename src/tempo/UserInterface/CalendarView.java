@@ -1,9 +1,10 @@
-package tempo.view;
+package tempo.UserInterface;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.scene.Parent;
+import javafx.scene.control.Control;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Screen;
@@ -26,7 +27,7 @@ public class CalendarView extends Parent {
         initView();
         initCommunication();
         Screen screen = Screen.getPrimary();
-        webView.setPrefSize(screen.getBounds().getWidth() - 800,screen.getBounds().getHeight() - 100);
+        webView.setPrefSize(617, 521);
         getChildren().add(webView); // Will be change as JavaFx Elements change
     }
 

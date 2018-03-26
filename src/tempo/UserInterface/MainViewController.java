@@ -1,10 +1,8 @@
-package sample;
+package tempo.UserInterface;
 
 import javafx.fxml.FXML;
-import tempo.view.CalendarView;
 
-public class Controller {
-
+public class MainViewController {
     @FXML
     private CalendarView calenderView;
 }
