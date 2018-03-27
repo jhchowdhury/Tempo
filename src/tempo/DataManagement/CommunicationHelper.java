@@ -19,6 +19,6 @@ public class CommunicationHelper {
     }
 
     public void fillNotificationHolder(){
-        
+
     }
 }
