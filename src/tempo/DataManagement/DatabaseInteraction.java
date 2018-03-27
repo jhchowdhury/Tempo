@@ -7,6 +7,6 @@ public class DatabaseInteraction {
     }
 
     public void getDataFromDatabase(){
-        
+
     }
 }
