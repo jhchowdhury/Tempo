@@ -15,6 +15,6 @@ public class EventController {
     }
 
     public void operation(){
-        
+
     }
 }
