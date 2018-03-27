@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 public class EventDataholder {
 
-    ArrayList<Event>  eventList = new ArrayList<Event>();
+    private ArrayList<Event>  eventList = new ArrayList<Event>();
 }

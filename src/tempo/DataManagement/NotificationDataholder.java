@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 public class NotificationDataholder {
 
-    ArrayList<Notification> notificationList = new ArrayList<Notification>();
+    private ArrayList<Notification> notificationList = new ArrayList<Notification>();
 }
