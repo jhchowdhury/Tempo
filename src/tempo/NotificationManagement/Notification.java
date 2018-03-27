@@ -11,6 +11,6 @@ public class Notification {
     private int notificationType;
 
     public void getAction(){
-        
+
     }
 }
