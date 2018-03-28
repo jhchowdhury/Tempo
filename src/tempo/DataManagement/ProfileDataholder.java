@@ -6,7 +6,6 @@ import tempo.ProfileManagement.Profile;
 import java.util.ArrayList;
 
 public class ProfileDataholder {
-
     private Profile profile;
-    private ArrayList<Friend> friendList = new ArrayList<Friend>();
+    private ArrayList<Friend> friendList = new ArrayList<>();
 }

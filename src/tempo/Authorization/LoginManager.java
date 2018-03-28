@@ -1,7 +1,6 @@
 package tempo.Authorization;
 
 public class LoginManager {
-
     private String username;
     private String password;
 
