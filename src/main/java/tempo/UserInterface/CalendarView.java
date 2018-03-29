@@ -26,7 +26,7 @@ public class CalendarView extends Parent {
         initView();
         initCommunication();
         Screen screen = Screen.getPrimary();
-        webView.setPrefSize(617, 521);
+        webView.setPrefSize(1040, 660);
         getChildren().add(webView); // Will be change as JavaFx Elements change
     }
 
