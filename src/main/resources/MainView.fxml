@@ -16,7 +16,7 @@
         <items>
           <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Week" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Month" />
-            <Region prefHeight="30.0" prefWidth="996.0">
+            <Region prefHeight="30.0" prefWidth="950.0">
                <padding>
                   <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
@@ -24,7 +24,7 @@
             <Button fx:id="addEventBtn" mnemonicParsing="false" onAction="#handleEventAddBtn" prefHeight="25.0" prefWidth="30.0" text="+" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="-" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="=" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="33.0" text="X" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Log out" />
         </items>
       </ToolBar>
       <HBox prefHeight="640.0" prefWidth="1280.0">
@@ -53,10 +53,10 @@
       <SwingNode />
       <ToolBar prefHeight="40.0" prefWidth="1280.0">
          <items>
-            <Label fx:id="dataBar" prefHeight="17.0" prefWidth="1163.0" text="Sample data" />
+            <Label fx:id="dataBar" prefHeight="17.0" prefWidth="1162.0" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="o" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="X" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="?" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="X" />
          </items>
       </ToolBar>
    </children>
