@@ -4,7 +4,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.scene.Parent;
-import javafx.scene.control.Control;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Screen;
@@ -36,7 +35,7 @@ public class CalendarView extends Parent {
 
         webView = new WebView();
         webEngine = webView.getEngine();
-        webEngine.load(getClass().getResource("web/Calendar.html").toExternalForm());
+        webEngine.load(getClass().getClassLoader().getResource("web/Calendar.html").toExternalForm());
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>()
         {
             @Override
@@ -96,7 +95,7 @@ public class CalendarView extends Parent {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         String startDate = df.format(start);
         String endDate = df.format(end);
-        invokeJS("addEvent("+ eventTitle +", "+ startDate + ", " + endDate +")");
+        invokeJS("addEvent('"+ eventTitle +"', "+ start.getYear() +", "+ start.getMonth()+", "+ start.getDate() +", "+ end.getYear() +", "+ end.getMonth()+", "+ end.getDate()+");");
     }
 
     public void removeEvent(int eventID){
