@@ -95,7 +95,7 @@ public class CalendarView extends Parent {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         String startDate = df.format(start);
         String endDate = df.format(end);
-        invokeJS("addEvent("+ eventTitle +", "+ startDate + ", " + endDate +")");
+        invokeJS("addEvent('"+ eventTitle +"', "+ start.getYear() +", "+ start.getMonth()+", "+ start.getDate() +", "+ end.getYear() +", "+ end.getMonth()+", "+ end.getDate()+");");
     }
 
     public void removeEvent(int eventID){

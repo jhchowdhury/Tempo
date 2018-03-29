@@ -15,10 +15,14 @@
       defaultDate: '2018-03-12',
       editable: true,
       eventLimit: true, // allow "more" link when too many events
-      events: []
     });
 
   });
+
+  function addEvent(title, sy, sm, sd, ey, em, ed){
+    var event={id:1 , title: title, start:  new Date(sy,sm -1,sd), end: new Date(ey, em - 1, ed)};
+    $('#calendar').fullCalendar( 'renderEvent', event, true);
+  }
 
 </script>
 <style>

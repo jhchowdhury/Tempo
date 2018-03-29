@@ -8,10 +8,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-
 <?import tempo.UserInterface.*?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.MainViewController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="200.0">
         <items>
@@ -22,7 +21,7 @@
                   <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
             </Region>
-            <Button mnemonicParsing="false" text="+" />
+            <Button fx:id="addEventBtn" mnemonicParsing="false" onAction="#handleEventAddBtn" text="+" />
             <Button mnemonicParsing="false" text="-" />
             <Button mnemonicParsing="false" text="=" />
             <Button mnemonicParsing="false" text="x" />
@@ -30,7 +29,9 @@
       </ToolBar>
       <HBox prefHeight="531.0" prefWidth="800.0">
          <children>
-            <Pane prefHeight="521.0" prefWidth="617.0"> <CalendarView></CalendarView> </Pane>
+            <Pane prefHeight="521.0" prefWidth="617.0">
+               <children> <CalendarView fx:id="calenderView" />
+               </children> </Pane>
             <AnchorPane prefHeight="521.0" prefWidth="238.0" style="-fx-background-color: gray;">
                <children>
                   <ListView layoutX="6.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" />
@@ -52,7 +53,7 @@
       <SwingNode />
       <ToolBar prefHeight="40.0" prefWidth="200.0">
          <items>
-            <Label prefHeight="17.0" prefWidth="692.0" text="Sample data" />
+            <Label fx:id="dataBar" prefHeight="17.0" prefWidth="692.0" text="Sample data" />
             <Button mnemonicParsing="false" text="o" />
             <Button mnemonicParsing="false" text="X" />
             <Button mnemonicParsing="false" text="?" />

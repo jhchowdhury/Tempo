@@ -39,7 +39,7 @@ public class DatabaseInteraction {
     /**
      * Get data from the database as a class
      * Use it as Event event = getDataFromDatabase("events", "username", "Kaan", Event.class);
-     * @param collection Name of the table on the database such as events, profiles, notofications
+     * @param collection Name of the table on the database such as events, profiles, notifications
      * @param identifier Which argument you are looking at like user name or id
      * @param attribute Search argument
      * @param cls Class type of the return type
@@ -54,7 +54,7 @@ public class DatabaseInteraction {
     /**
      * Get data from database as a list
      * Use it as ArrayList<Event> event = getDataFromDatabase("events", "username", "Kaan", Event.class);
-     * @param collection Name of the table on the database such as events, profiles, notofications
+     * @param collection Name of the table on the database such as events, profiles, notifications
      * @param identifier Which argument you are looking at like user name or id
      * @param attribute Search argument
      * @param cls Class type of the return type
