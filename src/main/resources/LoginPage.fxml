@@ -6,26 +6,33 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" style="-fx-background-color: #595959#595959;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" style="-fx-background-color: #595959#595959;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.MainViewController">
    <children>
-      <VBox layoutX="320.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999;" />
-      <VBox layoutX="26.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999#009999;" />
+      <AnchorPane layoutX="26.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999;">
+         <children>
+            <Label fx:id="lblLoginStatus" layoutX="66.0" layoutY="175.0" prefHeight="20.0" prefWidth="149.0" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="320.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999;" />
       <Pane layoutX="26.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #4d9900#4d9900;">
          <children>
-            <TextField layoutX="80.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" />
-            <Label layoutX="10.0" layoutY="100.0" text="Username:">
+            <TextField fx:id="txtLoginUsername" layoutX="80.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" />
+            <Label layoutX="8.0" layoutY="60.0" text="Username:">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label layoutX="10.0" layoutY="160.0" text="Password:">
+            <Label layoutX="10.0" layoutY="100.0" text="Password:">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <PasswordField layoutX="80.0" layoutY="160.0" prefHeight="25.0" prefWidth="160.0" />
-            <Button layoutX="114.0" layoutY="200.0" mnemonicParsing="false" text="Sign in" />
+            <PasswordField fx:id="txtLoginPassword" layoutX="80.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" />
+            <Button layoutX="114.0" layoutY="140.0" mnemonicParsing="false" onAction="#Login" text="Sign in" />
             <Label layoutX="104.0" layoutY="3.0" text="LOGIN">
                <font>
                   <Font name="Verdana Italic" size="22.0" />
@@ -57,10 +64,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label layoutX="10.0" layoutY="220.0" prefHeight="7.0" prefWidth="64.0" text="Password:">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
+            <Label layoutX="10.0" layoutY="220.0" prefHeight="17.0" prefWidth="72.0" text="Re-Password:" />
             <Label layoutX="10.0" layoutY="115.0" text="Surname:">
                <font>
                   <Font size="14.0" />
