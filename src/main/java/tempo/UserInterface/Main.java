@@ -11,6 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
+        StageHolder.getInstance().stage = primaryStage;
         primaryStage.setTitle("Tempo App");
         primaryStage.setScene(new Scene(root, 640, 360));
         primaryStage.show();
