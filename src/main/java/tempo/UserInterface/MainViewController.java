@@ -2,7 +2,9 @@ package tempo.UserInterface;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -18,10 +20,34 @@ import java.util.Date;
 
 public class MainViewController {
     @FXML
+    private TextField txtLoginUsername;
+
+    @FXML
+    private TextField txtLoginPassword;
+
+    @FXML
+    private Label lblLoginStatus;
+
+    @FXML
     private CalendarView calenderView;
 
     @FXML
     private Label dataBar;
+
+    @FXML
+    private void Login(ActionEvent event) throws Exception{
+        if(txtLoginUsername.getText().equals("user") && txtLoginPassword.getText().equals("password")){
+            lblLoginStatus.setText("Sign in succesful!");
+            Stage Stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
+            Stage.setTitle("Tempo App");
+            Stage.setScene(new Scene(root, 1280, 720));
+            Stage.show();
+        }
+        else{
+            lblLoginStatus.setText("Sign in unsuccesful!");
+        }
+    }
 
     @FXML
     private void handleEventAddBtn(ActionEvent event) {
