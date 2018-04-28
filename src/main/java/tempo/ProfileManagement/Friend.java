@@ -4,4 +4,5 @@ public class Friend {
     private int friendID;
     private String name;
     private Profile profile;
+
 }

@@ -1,5 +1,5 @@
 package tempo.EventManagement;
 
-public class Permanent{
+public class Permanent extends Event{
 
 }
