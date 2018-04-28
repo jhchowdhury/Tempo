@@ -4,15 +4,14 @@ import org.jongo.marshall.jackson.oid.MongoId;
 import org.jongo.marshall.jackson.oid.MongoObjectId;
 
 public class Profile {
+    @MongoId
+    @MongoObjectId
+    private String key;
+
     private int profileID;
     private String name;
     private String email;
     private String profilePictureName;
     private String[] preferences;
-
-    @MongoId
-    @MongoObjectId
-    private String key;
-
 
 }

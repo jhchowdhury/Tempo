@@ -9,7 +9,7 @@ public class Notification {
     @MongoId
     @MongoObjectId
     private String key;
-    
+
     private String notificationName;
     private String message;
     private Date dateOfNotification;
