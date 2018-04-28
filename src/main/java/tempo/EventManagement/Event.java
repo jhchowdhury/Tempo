@@ -7,4 +7,6 @@ public interface Event {
     String color = "";
     Date date = null;
     Date duration = null;
+    boolean completed = false;
+
 }
