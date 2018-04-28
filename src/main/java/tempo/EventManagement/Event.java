@@ -9,11 +9,10 @@ public abstract class Event {
     @MongoId
     private String key;
 
-    String name;
-    int type;
-    String color;
-    Date date;
-    Date duration;
-    boolean completed;
-
+    public String name;
+    public int type;
+    public String color;
+    public Date date;
+    public Date duration;
+    public boolean completed;
 }

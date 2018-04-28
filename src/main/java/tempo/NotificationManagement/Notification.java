@@ -10,10 +10,10 @@ public class Notification {
     @MongoObjectId
     private String key;
 
-    private String notificationName;
-    private String message;
-    private Date dateOfNotification;
-    private int notificationType;
+    public String notificationName;
+    public String message;
+    public Date dateOfNotification;
+    public int notificationType;
 
 
 
