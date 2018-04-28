@@ -2,7 +2,7 @@ package tempo.EventManagement;
 
 import java.util.Date;
 
-public class PersonalEvent implements Event{
+public class PersonalEvent extends Event{
     private String eventName;
     private Date eventDate;
     private Date eventDuration;
