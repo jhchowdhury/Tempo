@@ -2,7 +2,9 @@ package tempo.ProfileManagement;
 
 
 public class UserProfileController {
-    Profile profile;
+    private Profile profile;
 
-
+    public void changeUserName(String newName){
+        profile.name = newName;
+    }
 }
