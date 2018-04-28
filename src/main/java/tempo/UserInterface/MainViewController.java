@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -55,6 +56,15 @@ public class MainViewController {
         dataBar.setText("Button Action\n");
         Popup pop = new Popup();
         pop.display();
+    }
+
+    @FXML
+    private void handleProfileBtn(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ProfilePage.fxml"));
+        StageHolder.getInstance().stage.setTitle("Tempo App");
+        StageHolder.getInstance().stage.hide();
+        StageHolder.getInstance().stage.setScene(new Scene(root, 1280, 720));
+        StageHolder.getInstance().stage.show();
     }
 
     private class Popup {
