@@ -8,8 +8,4 @@ public class Notification {
     private String message;
     private Date dateOfNotification;
     private int notificationType;
-
-    public void getAction(){
-
-    }
 }

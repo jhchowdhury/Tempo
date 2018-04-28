@@ -6,7 +6,7 @@ public class NotificationController {
 
     }
 
-    public void addNotification(){
+    public void addNotification(Notification newNotification){
 
     }
 
