@@ -19,7 +19,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-public class MainViewController {
+public class AuthorizationView {
     @FXML
     private TextField txtLoginUsername;
 
