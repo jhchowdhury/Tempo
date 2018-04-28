@@ -18,7 +18,7 @@ public class CalendarManager {
 
     }
 
-    private void saveCalendar(){
+    private void deleteEvents(){
 
     }
 }

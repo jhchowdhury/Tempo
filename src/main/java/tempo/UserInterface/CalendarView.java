@@ -22,6 +22,8 @@ public class CalendarView extends Parent {
     private boolean ready;
     //####################################################################
 
+
+
     public CalendarView(){
         initView();
         initCommunication();
