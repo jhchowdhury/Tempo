@@ -22,7 +22,7 @@ public class DatabaseInteraction {
     }
 
     private DatabaseInteraction(){
-        Jongo jongo = new Jongo(new MongoClient(new MongoClientURI("mongodb://koala_user:koala123@ds119618.mlab.com:19618/koala")).getDB("tempo"));
+        jongo = new Jongo(new MongoClient(new MongoClientURI("mongodb://admin:jubaidforever@ds159459.mlab.com:59459/tempo")).getDB("tempo"));
     }
 
     /**
