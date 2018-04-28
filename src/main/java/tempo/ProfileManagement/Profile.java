@@ -9,16 +9,15 @@ import java.io.File;//to read File
 import java.io.IOException;
 
 public class Profile {
+    @MongoId
+    @MongoObjectId
+    private String key;
+
     private int profileID;
     private String name;
     private String email;
     private String profilePictureName;
     private BufferedImage profileImage;
     private String[] preferences;
-
-    @MongoId
-    @MongoObjectId
-    private String key;
-
 
 }
