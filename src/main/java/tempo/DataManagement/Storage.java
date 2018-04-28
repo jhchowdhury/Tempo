@@ -21,17 +21,17 @@ public class Storage extends Event{
 
     }
 
-    /*
+    //deneme
+
     public Event getEvent( String name) {
-        return ;
+        return null;
     }
 
     public Profile getProfile( String username) {
-    return;
+        return null;
     }
 
     public Notification getNotification ( String notif) {
-    return;
+        return null;
     }
-    */
 }
