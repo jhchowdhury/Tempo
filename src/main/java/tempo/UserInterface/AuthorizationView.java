@@ -75,6 +75,7 @@ public class AuthorizationView {
         }
     }
 
+    @FXML
     private void Register(ActionEvent event) throws Exception{
 
     }
