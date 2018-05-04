@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import tempo.Authorization.LoginManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -37,7 +38,10 @@ public class AuthorizationView {
 
     @FXML
     private void Login(ActionEvent event) throws Exception{
-        if(txtLoginUsername.getText().equals("user") && txtLoginPassword.getText().equals("password")){
+        LoginManager login = new LoginManager();
+        login.setUsername(txtLoginUsername.getText());
+        login.setPassword(txtLoginPassword.getText());
+        if(login.login()){
             lblLoginStatus.setText("Sign in succesful!");
             Stage Stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));

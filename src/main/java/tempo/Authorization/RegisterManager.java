@@ -20,10 +20,13 @@ public class RegisterManager {
         this.password = password;
     }
 
-    public void register() throws NoSuchAlgorithmException {
+    public boolean register() throws NoSuchAlgorithmException {
         User user = new User();
         user.username = name;
         user.password = new String(java.security.MessageDigest.getInstance("MD5").digest(password.getBytes()));
+        User usertemp = DatabaseInteraction.getInstance().getDataFromDatabase("users", "username", name, User.class);
+        if(usertemp == null)
+            return false;
         DatabaseInteraction.getInstance().<User>sendDataToDatabase("users", user);
         Profile profile = new Profile();
         DatabaseInteraction.getInstance().<Profile>sendDataToDatabase("profiles", profile);
@@ -31,6 +34,7 @@ public class RegisterManager {
         DatabaseInteraction.getInstance().updateDataFromDatabase("users", "key", user.getKey(), user);
         profile.profileID = profile.getKey();
         DatabaseInteraction.getInstance().updateDataFromDatabase("profiles", "key", profile.getKey(), profile);
+        return true;
     }
 
     public void operation(){
