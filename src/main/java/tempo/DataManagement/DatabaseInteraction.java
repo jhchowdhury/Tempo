@@ -2,6 +2,7 @@ package tempo.DataManagement;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import org.bson.types.ObjectId;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
@@ -86,5 +87,10 @@ public class DatabaseInteraction {
     public <T> void updateDataFromDatabase(String collection, String identifier, String attribute, T data){
         MongoCollection mongoCollection = jongo.getCollection(collection);
         mongoCollection.update("{"+identifier+": '"+attribute+"'}").with(data);
+    }
+
+    public <T> void updateDataFromDatabaseByID(String collection, String identifier, T data){
+        MongoCollection mongoCollection = jongo.getCollection(collection);
+        mongoCollection.update(new ObjectId(identifier)).with(data);
     }
 }

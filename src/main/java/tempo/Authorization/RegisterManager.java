@@ -22,18 +22,23 @@ public class RegisterManager {
 
     public boolean register() throws NoSuchAlgorithmException {
         User user = new User();
-        user.username = name;
+        user.username = username;
         user.password = new String(java.security.MessageDigest.getInstance("MD5").digest(password.getBytes()));
-        User usertemp = DatabaseInteraction.getInstance().getDataFromDatabase("users", "username", name, User.class);
-        if(usertemp == null)
+        user.profileID = "0";
+        User usertemp = DatabaseInteraction.getInstance().getDataFromDatabase("users", "username", username, User.class);
+        if(usertemp != null)
             return false;
         DatabaseInteraction.getInstance().<User>sendDataToDatabase("users", user);
         Profile profile = new Profile();
         DatabaseInteraction.getInstance().<Profile>sendDataToDatabase("profiles", profile);
         user.profileID = profile.getKey();
-        DatabaseInteraction.getInstance().updateDataFromDatabase("users", "key", user.getKey(), user);
+        System.out.println(profile.getKey());
+        DatabaseInteraction.getInstance().updateDataFromDatabase("users", "username", user.username, user);
         profile.profileID = profile.getKey();
-        DatabaseInteraction.getInstance().updateDataFromDatabase("profiles", "key", profile.getKey(), profile);
+        profile.email = email;
+        profile.name = name;
+        profile.surname = surname;
+        DatabaseInteraction.getInstance().updateDataFromDatabaseByID("profiles", profile.getKey(), profile);
         return true;
     }
 
