@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -64,11 +65,11 @@ public class AuthorizationView {
         login.setPassword(txtLoginPassword.getText());
         if(login.login()){
             lblLoginStatus.setText("Sign in succesful!");
-            Stage Stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
-            Stage.setTitle("Tempo App");
-            Stage.setScene(new Scene(root, 1280, 720));
-            Stage.show();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         }
         else{
             lblLoginStatus.setText("Sign in unsuccesful!");
