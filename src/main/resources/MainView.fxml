@@ -12,15 +12,22 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import tempo.UserInterface.* ?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.AuthorizationView">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.MainView">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane>
                <children>
-                  <ToolBar prefHeight="40.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <ToolBar prefHeight="40.0" prefWidth="1280.0">
+                     <items>
+                        <Label fx:id="dataBar" prefHeight="17.0" prefWidth="1162.0" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="o" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="?" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="X" />
+                     </items>
+                  </ToolBar>
+                  <ToolBar layoutY="40.0" prefHeight="40.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <items>
                       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Week" />
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Month" />
@@ -32,14 +39,14 @@
                         <Button fx:id="addEventBtn" mnemonicParsing="false" onAction="#handleEventAddBtn" prefHeight="25.0" prefWidth="30.0" text="+" />
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="-" />
                         <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#handleProfileBtn" prefHeight="25.0" prefWidth="30.0" text="=" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Log out" />
+                        <Button mnemonicParsing="false" onAction="#logOutFromDatabase" prefHeight="25.0" prefWidth="75.0" text="Log out" />
                     </items>
                   </ToolBar>
                </children>
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <HBox prefHeight="640.0" prefWidth="1280.0" AnchorPane.rightAnchor="0.0">
+                  <HBox prefHeight="600.0" prefWidth="1280.0" AnchorPane.rightAnchor="0.0">
                      <children>
                         <Pane prefHeight="600.0" prefWidth="1040.0">
                            <children> <CalendarView fx:id="calenderView" />
@@ -69,14 +76,6 @@
                </children>
             </AnchorPane>
             <SwingNode />
-            <ToolBar prefHeight="40.0" prefWidth="1280.0">
-               <items>
-                  <Label fx:id="dataBar" prefHeight="17.0" prefWidth="1162.0" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="o" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="?" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="X" />
-               </items>
-            </ToolBar>
          </children>
       </VBox>
    </children>
