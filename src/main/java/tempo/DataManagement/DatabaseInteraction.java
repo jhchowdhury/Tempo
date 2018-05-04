@@ -65,8 +65,26 @@ public class DatabaseInteraction {
         MongoCursor<T> all = mongoCollection.find("{"+identifier+": '"+attribute+"'}").as(cls);
         ArrayList<T> list = new ArrayList<T>();
         for(T element : all){
-            list.add(element);
+            if(element != null)
+                list.add(element);
         }
         return list;
+    }
+
+    /**
+     * Remove data from the database by identifier
+     * Use it as removeDataFromDatabase("events", "username", "Kaan");
+     * @param collection Name of the table on the database such as events, profiles, notifications
+     * @param identifier Which argument you are looking at like user name or id
+     * @param attribute Search argument
+     */
+    public void removeDataFromDatabase(String collection, String identifier, String attribute){
+        MongoCollection mongoCollection = jongo.getCollection(collection);
+        mongoCollection.remove("{"+identifier+": '"+attribute+"'}");
+    }
+
+    public <T> void updateDataFromDatabase(String collection, String identifier, String attribute, T data){
+        MongoCollection mongoCollection = jongo.getCollection(collection);
+        mongoCollection.update("{"+identifier+": '"+attribute+"'}").with(data);
     }
 }

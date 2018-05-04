@@ -10,6 +10,8 @@ public class Notification {
     @MongoObjectId
     private String key;
 
+    public String sender;
+    public String receiver;
     public String notificationName;
     public String message;
     public Date dateOfNotification;

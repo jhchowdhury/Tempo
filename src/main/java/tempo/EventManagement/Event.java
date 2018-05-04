@@ -8,6 +8,7 @@ public abstract class Event {
     @MongoObjectId
     @MongoId
     private String key;
+    public String owner;
 
     public String name;
     public int type;

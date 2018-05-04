@@ -8,10 +8,15 @@ public class Profile {
     @MongoObjectId
     private String key;
 
-    public int profileID;
+    public String profileID;
     public String name;
     public String email;
     public String profilePictureName;
     public String[] preferences;
+    public String[] friends;
+
+    public String getKey(){
+        return key;
+    }
 
 }

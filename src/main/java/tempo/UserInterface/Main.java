@@ -5,11 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tempo.DataManagement.CommunicationHelper;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        CommunicationHelper.getInstance().initiateDatabase();
+
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
         StageHolder.getInstance().stage = primaryStage;
         primaryStage.setTitle("Tempo App");
