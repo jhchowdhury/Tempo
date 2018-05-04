@@ -16,7 +16,4 @@ public class Notification {
     public String message;
     public Date dateOfNotification;
     public int notificationType;
-
-
-
 }

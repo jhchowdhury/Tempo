@@ -16,6 +16,5 @@ public class SmartEvent extends Event{
 
     }
     public void addFriend(){
-
     }
 }

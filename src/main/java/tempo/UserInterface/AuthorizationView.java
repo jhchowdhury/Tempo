@@ -28,7 +28,28 @@ public class AuthorizationView {
     private TextField txtLoginPassword;
 
     @FXML
+    private TextField txtSignupUsername;
+
+    @FXML
+    private TextField getTxtSignupName;
+
+    @FXML
+    private TextField getTxtSignupSurname;
+
+    @FXML
+    private TextField getTxtSignupEmail;
+
+    @FXML
+    private TextField getTxtSignupPassword;
+
+    @FXML
+    private TextField getTxtSignupRepassword;
+
+    @FXML
     private Label lblLoginStatus;
+
+    @FXML
+    private Label lblRegisterStatus;
 
     @FXML
     private CalendarView calenderView;
@@ -53,6 +74,11 @@ public class AuthorizationView {
             lblLoginStatus.setText("Sign in unsuccesful!");
         }
     }
+
+    private void Register(ActionEvent event) throws Exception{
+
+    }
+    
 
     @FXML
     private void handleEventAddBtn(ActionEvent event) {

@@ -15,6 +15,8 @@ public class Profile {
     public String[] preferences;
     public String[] friends;
 
+
+
     public String getKey(){
         return key;
     }
