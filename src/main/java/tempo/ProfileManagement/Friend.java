@@ -1,10 +1,13 @@
 package tempo.ProfileManagement;
 
 public class Friend {
+    //variables
     private String friendID;
     private String name;
     private Profile profile;
 
+
+    //methods
     public String getFriendID() {
         return friendID;
     }

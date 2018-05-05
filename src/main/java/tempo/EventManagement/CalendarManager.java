@@ -2,6 +2,7 @@ package tempo.EventManagement;
 
 public class CalendarManager {
 
+    //methods
     private void setupCalendar(){
 
     }

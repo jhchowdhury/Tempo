@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class DatabaseInteraction {
 
-    //Singleton design pattern
+    //**Singleton design pattern**
 
     private static DatabaseInteraction instance = null;
     private Jongo jongo = null;

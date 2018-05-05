@@ -1,7 +1,7 @@
 package tempo.EventManagement;
 
 public class EventController {
-
+    //methods
     public void refreshEvents(){
 
     }
