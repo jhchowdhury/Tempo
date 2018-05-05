@@ -54,6 +54,7 @@ public class AuthorizationView {
     @FXML
     private Label lblRegisterStatus;
 
+
     @FXML
     private void Login(ActionEvent event) throws Exception{
         LoginManager login = new LoginManager();

@@ -20,7 +20,7 @@
   });
 
   function addEvent(title, sy, sm, sd, ey, em, ed){
-    var event={id:1 , title: title, start:  new Date(sy,sm -1,sd), end: new Date(ey, em - 1, ed)};
+    var event={title: title, start:  new Date(sy,sm -1,sd), end: new Date(ey, em - 1, ed)};
     $('#calendar').fullCalendar( 'renderEvent', event, true);
   }
 
