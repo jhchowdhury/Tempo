@@ -84,6 +84,11 @@ public class DatabaseInteraction {
         mongoCollection.remove("{"+identifier+": '"+attribute+"'}");
     }
 
+    public void removeDataFromDatabasebyID(String collection, String identifier){
+        MongoCollection mongoCollection = jongo.getCollection(collection);
+        mongoCollection.remove("{"+identifier+"'}");
+    }
+
     public <T> void updateDataFromDatabase(String collection, String identifier, String attribute, T data){
         MongoCollection mongoCollection = jongo.getCollection(collection);
         mongoCollection.update("{"+identifier+": '"+attribute+"'}").with(data);

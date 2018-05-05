@@ -19,4 +19,13 @@ public class Event {
     public boolean completed;
     public boolean permanent;// if the event is permanent then it is true, if not it is false which means it is a temporary event
     public boolean timeless;
+
+    public String getKey(){
+        return key;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(name);
+    }
 }

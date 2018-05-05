@@ -88,6 +88,15 @@ public class Storage{
         return null;
     }
 
+    public void removeEvent(String id){
+        for (Event e: eventHolder) {
+            if(e.getKey().equals(id)){
+                eventHolder.remove(e);
+            }
+        }
+        DatabaseInteraction.getInstance().removeDataFromDatabasebyID("events", id);
+    }
+
 
     public Notification getNotification (String notif) {
         return null;

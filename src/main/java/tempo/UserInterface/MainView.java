@@ -3,6 +3,7 @@ package tempo.UserInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -13,15 +14,20 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tempo.Authorization.LoginManager;
+import tempo.DataManagement.CommunicationHelper;
 import tempo.DataManagement.Storage;
+import tempo.EventManagement.CalendarManager;
 import tempo.EventManagement.Event;
+import tempo.EventManagement.EventController;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.ResourceBundle;
 
-public class MainView {
+public class MainView implements Initializable {
     @FXML
     private CalendarView calenderView;
 
@@ -33,6 +39,16 @@ public class MainView {
 
     @FXML
     private ListView friends;
+
+    private EventController ec;
+
+    @FXML
+    public void initialize(URL location, ResourceBundle resources) {
+        CalendarManager cm = new CalendarManager();
+        cm.setView(calenderView);
+        ec = new EventController(cm, toDoList);
+        ec.refreshEvents();
+    }
 
     @FXML
     private void openWeekly(ActionEvent event) throws Exception {
@@ -52,6 +68,7 @@ public class MainView {
 
     @FXML
     private void eventDelete(ActionEvent event) {
+
     }
 
     @FXML
@@ -179,7 +196,7 @@ public class MainView {
                     event.duration = end;
                     event.type = 3;
                 }
-                Storage.getInstance().addEvent(event);
+                ec.addEvent(event);
                 popupwindow.close();
             });
             VBox layout= new VBox(10);

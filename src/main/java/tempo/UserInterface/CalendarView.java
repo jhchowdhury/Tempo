@@ -111,6 +111,10 @@ public class CalendarView extends Parent {
         invokeJS("changeEvent("+ eventTitle +", "+ startDate + ", " + endDate +")");
     }
 
+    public void clearEvent(){
+        invokeJS("clearEvent()");
+    }
+
     public void handleEventOnChange(int eventID, String eventTitle, String start, String end){
         /*   Do something here   */
     }
