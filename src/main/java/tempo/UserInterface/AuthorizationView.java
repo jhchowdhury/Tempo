@@ -11,10 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tempo.Authorization.LoginManager;
+import tempo.Authorization.RegisterManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -26,25 +28,25 @@ public class AuthorizationView {
     private TextField txtLoginUsername;
 
     @FXML
-    private TextField txtLoginPassword;
+    private PasswordField txtLoginPassword;
 
     @FXML
     private TextField txtSignupUsername;
 
     @FXML
-    private TextField getTxtSignupName;
+    private TextField txtSignupName;
 
     @FXML
-    private TextField getTxtSignupSurname;
+    private TextField txtSignupSurname;
 
     @FXML
-    private TextField getTxtSignupEmail;
+    private TextField txtSignupEmail;
 
     @FXML
-    private TextField getTxtSignupPassword;
+    private PasswordField txtSignupPassword;
 
     @FXML
-    private TextField getTxtSignupRepassword;
+    private PasswordField txtSignupRepassword;
 
     @FXML
     private Label lblLoginStatus;
@@ -72,6 +74,22 @@ public class AuthorizationView {
 
     @FXML
     private void Register(ActionEvent event) throws Exception{
-
+        if(!(txtSignupName.getText().equals("") && txtSignupSurname.getText().equals("") && txtSignupEmail.getText().equals("") && txtSignupUsername.getText().equals("") && txtSignupPassword.getText().equals(""))){
+            if(txtSignupPassword.getText().equals(txtSignupRepassword.getText())){
+                RegisterManager register = new RegisterManager(txtSignupName.getText(), txtSignupSurname.getText(), txtSignupEmail.getText(), txtSignupUsername.getText(), txtSignupPassword.getText());
+                if(register.register()){
+                    lblRegisterStatus.setText("Register is succesful!");
+                }
+                else{
+                    lblRegisterStatus.setText("Register is unsuccesful!");
+                }
+            }
+            else{
+                lblRegisterStatus.setText("Rewrite passwords.");
+            }
+        }
+        else{
+            lblRegisterStatus.setText("Fill everything!");
+        }
     }
 }

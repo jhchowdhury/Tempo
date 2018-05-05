@@ -18,7 +18,14 @@
          </Label>
       </children>
    </AnchorPane>
-   <AnchorPane layoutX="320.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="75.0" />
+   <AnchorPane layoutX="320.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="75.0">
+      <children>
+         <Label fx:id="lblRegisterStatus" layoutX="66.0" layoutY="251.0" prefHeight="20.0" prefWidth="149.0" textFill="RED">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </children></AnchorPane>
    <Pane layoutX="26.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #4d9900#4d9900;" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="45.0">
       <children>
          <TextField fx:id="txtLoginUsername" layoutX="80.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" />
@@ -43,10 +50,10 @@
    </Pane>
    <Pane layoutX="320.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #4d9900#4d9900;" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="45.0">
       <children>
-         <TextField layoutX="90.0" layoutY="45.0" prefHeight="25.0" prefWidth="160.0" />
-         <TextField layoutX="90.0" layoutY="80.0" prefHeight="25.0" prefWidth="160.0" />
-         <PasswordField layoutX="90.0" layoutY="185.0" prefHeight="25.0" prefWidth="160.0" />
-         <PasswordField layoutX="90.0" layoutY="220.0" prefHeight="25.0" prefWidth="160.0" />
+         <TextField fx:id="txtSignupUsername" layoutX="90.0" layoutY="45.0" prefHeight="25.0" prefWidth="160.0" />
+         <TextField fx:id="txtSignupName" layoutX="90.0" layoutY="80.0" prefHeight="25.0" prefWidth="160.0" />
+         <PasswordField fx:id="txtSignupPassword" layoutX="90.0" layoutY="185.0" prefHeight="25.0" prefWidth="160.0" />
+         <PasswordField fx:id="txtSignupRepassword" layoutX="90.0" layoutY="220.0" prefHeight="25.0" prefWidth="160.0" />
          <Label layoutX="10.0" layoutY="45.0" text="Username:">
             <font>
                <Font size="14.0" />
@@ -57,8 +64,8 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <TextField layoutX="90.0" layoutY="115.0" prefHeight="25.0" prefWidth="160.0" />
-         <TextField layoutX="90.0" layoutY="150.0" prefHeight="25.0" prefWidth="160.0" />
+         <TextField fx:id="txtSignupSurname" layoutX="90.0" layoutY="115.0" prefHeight="25.0" prefWidth="160.0" />
+         <TextField fx:id="txtSignupEmail" layoutX="90.0" layoutY="150.0" prefHeight="25.0" prefWidth="160.0" />
          <Label layoutX="10.0" layoutY="150.0" text="E-mail:">
             <font>
                <Font size="14.0" />
