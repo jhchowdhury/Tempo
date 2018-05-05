@@ -24,6 +24,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 public class AuthorizationView {
+    //FXMLs
     @FXML
     private TextField txtLoginUsername;
 
@@ -54,6 +55,7 @@ public class AuthorizationView {
     @FXML
     private Label lblRegisterStatus;
 
+    //methods for FXML
 
     @FXML
     private void Login(ActionEvent event) throws Exception{

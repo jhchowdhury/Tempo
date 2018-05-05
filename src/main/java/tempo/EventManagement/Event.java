@@ -6,11 +6,12 @@ import tempo.DataManagement.Storage;
 import java.util.*;
 
 public class Event {
+    //for database
     @MongoObjectId
     @MongoId
     private String key;
     public String owner;
-
+    //variables
     public String name;
     public int type;
     public String color;

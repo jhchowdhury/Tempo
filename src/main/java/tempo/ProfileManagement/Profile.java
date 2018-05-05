@@ -4,6 +4,7 @@ import org.jongo.marshall.jackson.oid.MongoId;
 import org.jongo.marshall.jackson.oid.MongoObjectId;
 
 public class Profile {
+    //for database
     @MongoId
     @MongoObjectId
     private String key;

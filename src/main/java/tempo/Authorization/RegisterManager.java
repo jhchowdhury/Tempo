@@ -6,12 +6,14 @@ import tempo.ProfileManagement.Profile;
 import java.security.NoSuchAlgorithmException;
 
 public class RegisterManager {
+    //variables
     private String name;
     private String surname;
     private String email;
     private String username;
     private String password;
 
+    //methods
     public RegisterManager(String name, String surname, String email, String username, String password) {
         this.name = name;
         this.surname = surname;

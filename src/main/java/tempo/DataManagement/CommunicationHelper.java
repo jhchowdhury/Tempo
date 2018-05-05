@@ -11,6 +11,7 @@ public class CommunicationHelper {
 
     private static CommunicationHelper instance = null;
 
+    //methods
     public static CommunicationHelper getInstance(){
         if(instance == null)
             instance = new CommunicationHelper();

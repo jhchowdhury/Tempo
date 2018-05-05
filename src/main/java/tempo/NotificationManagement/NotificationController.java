@@ -2,6 +2,7 @@ package tempo.NotificationManagement;
 
 public class NotificationController {
 
+    //methods
     public void refreshNotification(){
 
     }

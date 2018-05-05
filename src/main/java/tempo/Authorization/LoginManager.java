@@ -7,6 +7,7 @@ import tempo.ProfileManagement.Profile;
 import java.security.NoSuchAlgorithmException;
 
 public class LoginManager {
+    //variables
     private String username;
     private String password;
 

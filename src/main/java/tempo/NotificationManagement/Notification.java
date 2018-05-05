@@ -6,10 +6,11 @@ import org.jongo.marshall.jackson.oid.MongoObjectId;
 import java.util.Date;
 
 public class Notification {
+    //for database
     @MongoId
     @MongoObjectId
     private String key;
-
+    //variables
     public String sender;
     public String receiver;
     public String notificationName;
