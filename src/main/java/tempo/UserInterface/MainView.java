@@ -13,8 +13,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import tempo.Authorization.LoginManager;
-import tempo.DataManagement.CommunicationHelper;
 import tempo.DataManagement.Storage;
 import tempo.EventManagement.CalendarManager;
 import tempo.EventManagement.Event;
@@ -22,8 +20,6 @@ import tempo.EventManagement.EventController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -68,7 +64,8 @@ public class MainView implements Initializable {
 
     @FXML
     private void eventDelete(ActionEvent event) {
-
+        ec.removeEvent(calenderView.getSelectedEventId());
+        ec.refreshEvents();
     }
 
     @FXML
@@ -170,9 +167,6 @@ public class MainView implements Initializable {
 
             button1.setOnAction(e -> {
                 title = txt1.getText();
-                start = new Date(txt2.getValue().getYear(), txt2.getValue().getMonthValue(), txt2.getValue().getDayOfMonth());
-                end = new Date(txt3.getValue().getYear(), txt3.getValue().getMonthValue(), txt3.getValue().getDayOfMonth());
-                calenderView.addEvent(1,title, start, end);
                 Event event = new Event();
                 event.name = title;
                 event.owner = Storage.getInstance().getUser().profileID;
@@ -188,6 +182,8 @@ public class MainView implements Initializable {
                     event.date = start;
                     event.duration = end;
                     event.type = 2;
+                    start = new Date(txt2.getValue().getYear(), txt2.getValue().getMonthValue(), txt2.getValue().getDayOfMonth());
+                    end = new Date(txt3.getValue().getYear(), txt3.getValue().getMonthValue(), txt3.getValue().getDayOfMonth());
                 } else if(typeComboBox.getValue().toString().equals("Permanent")){
                     event.timeless = false;
                     event.permanent = true;
@@ -195,6 +191,8 @@ public class MainView implements Initializable {
                     event.date = start;
                     event.duration = end;
                     event.type = 3;
+                    start = new Date(txt2.getValue().getYear(), txt2.getValue().getMonthValue(), txt2.getValue().getDayOfMonth());
+                    end = new Date(txt3.getValue().getYear(), txt3.getValue().getMonthValue(), txt3.getValue().getDayOfMonth());
                 }
                 ec.addEvent(event);
                 popupwindow.close();

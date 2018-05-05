@@ -33,7 +33,9 @@ public class EventController {
         refreshEvents();
     }
 
+
     public void fillTodoList(){
+        todoList.getItems().clear();
         for(Event e: Storage.getInstance().getEventHolder()){
             if(e.timeless)
                 todoList.getItems().add(e);

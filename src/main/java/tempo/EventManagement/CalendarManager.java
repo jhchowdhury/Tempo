@@ -17,7 +17,7 @@ public class CalendarManager {
     public void setupCalendar(){
         for(Event e: data){
             if(!e.timeless)
-                view.addEvent(e.getKey().hashCode(), e.name, e.date, e.duration);
+                view.addEvent(e.getKey(), e.name, e.date, e.duration);
         }
     }
 

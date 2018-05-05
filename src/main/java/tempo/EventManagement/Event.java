@@ -25,6 +25,10 @@ public class Event {
         return key;
     }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     @Override
     public String toString() {
         return String.format(name);

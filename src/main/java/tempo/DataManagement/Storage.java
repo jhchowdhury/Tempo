@@ -83,23 +83,34 @@ public class Storage{
         CommunicationHelper.getInstance().sendNotificationToDatabase(notification,notification.receiver);
     }
 
-    public Event getEvent(String name) {
+    public Event getEvent(String id) {
         for(Event e: eventHolder){
-            if(e.name.equals(name))
+            if(e.getKey().equals(id))
                 return e;
         }
         return null;
     }
 
     public void removeEvent(String id){
-        for (Event e: eventHolder) {
-            if(e.getKey().equals(id)){
-                eventHolder.remove(e);
-            }
+        Event e = getEvent(id);
+        if(e != null) {
+            eventHolder.remove(getEvent(id));
+            DatabaseInteraction.getInstance().removeDataFromDatabasebyID("events", id);
         }
-        DatabaseInteraction.getInstance().removeDataFromDatabasebyID("events", id);
     }
 
+    public void changeEvent(String key, Event event){
+        Event e = getEvent(key);
+        event.name = e.name;
+        event.timeless = e.timeless;
+        event.owner = e.owner;
+        event.type = e.type;
+        event.completed = e.completed;
+        event.permanent = e.permanent;
+        event.color = e.color;
+        removeEvent(e.getKey());
+        addEvent(event);
+    }
 
     public Notification getNotification (String notif) {
         return null;

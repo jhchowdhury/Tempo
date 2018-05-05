@@ -8,6 +8,8 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Screen;
 import netscape.javascript.JSObject;
+import tempo.DataManagement.Storage;
+import tempo.EventManagement.Event;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -20,6 +22,7 @@ public class CalendarView extends Parent {
     private WebView webView;
     private WebEngine webEngine;
     private boolean ready;
+    private String selectedEventId;
     //####################################################################
 
 
@@ -93,11 +96,11 @@ public class CalendarView extends Parent {
         }
     }
 
-    public void addEvent(int eventID, String eventTitle, Date start, Date end){
+    public void addEvent(String eventID, String eventTitle, Date start, Date end){
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         String startDate = df.format(start);
         String endDate = df.format(end);
-        invokeJS("addEvent('"+ eventTitle +"', "+ start.getYear() +", "+ start.getMonth()+", "+ start.getDate() +", "+ end.getYear() +", "+ end.getMonth()+", "+ end.getDate()+");");
+        invokeJS("addEvent('"+eventID +"', '"+ eventTitle +"', "+ start.getYear() +", "+ start.getMonth()+", "+ start.getDate() +", "+ end.getYear() +", "+ end.getMonth()+", "+ end.getDate()+");");
     }
 
     public void removeEvent(int eventID){
@@ -111,11 +114,31 @@ public class CalendarView extends Parent {
         invokeJS("changeEvent("+ eventTitle +", "+ startDate + ", " + endDate +")");
     }
 
+    public String getSelectedEventId() {
+        return selectedEventId;
+    }
+
+    public void setSelectedEventId(String selectedEventId) {
+        this.selectedEventId = selectedEventId.toString();
+    }
+
     public void clearEvent(){
         invokeJS("clearEvent()");
     }
 
-    public void handleEventOnChange(int eventID, String eventTitle, String start, String end){
-        /*   Do something here   */
+    public void handleEventOnChange(String id, int sy, int sm, int sd, int ey, int em, int ed){
+        Event event = new Event();
+        event.setKey(id);
+        event.date = new Date();
+        System.out.println(sd);
+        event.date.setYear(sy);
+        event.date.setMonth(sm);
+        event.date.setDate(sd);
+        event.duration = new Date();
+        event.duration.setYear(ey);
+        event.duration.setMonth(em);
+        event.duration.setDate(ed);
+        Storage.getInstance().changeEvent(id, event);
+        System.out.println("works!");
     }
 }

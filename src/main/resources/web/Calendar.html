@@ -23,15 +23,19 @@
               exEvent.color = 'blue';
               $('#calendar').fullCalendar('updateEvent', exEvent);
             }
+            app.setSelectedEventId(calEvent.id);
             exEvent = calEvent;
-      }
+      },
+      eventDrop: function(event, delta, revertFunc) {
+        app.handleEventOnChange(event.id, event.start.year(), event.start.month() + 1, event.start.date(), event.end.year(), event.end.month()+1, event.end.date());
+         }
     });
   });
 
 
 
-  function addEvent(title, sy, sm, sd, ey, em, ed){
-    var event={title: title, start:  new Date(sy,sm -1,sd), end: new Date(ey, em - 1, ed)};
+  function addEvent(id, title, sy, sm, sd, ey, em, ed){
+    var event={id: id, title: title, start:  new Date(sy,sm -1,sd), end: new Date(ey, em - 1, ed)};
     $('#calendar').fullCalendar( 'renderEvent', event, true);
   }
 
