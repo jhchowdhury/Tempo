@@ -17,7 +17,6 @@ import tempo.DataManagement.Storage;
 import tempo.EventManagement.CalendarManager;
 import tempo.EventManagement.Event;
 import tempo.EventManagement.EventController;
-import tempo.NotificationManagement.NotificationCenter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,7 +44,6 @@ public class MainView implements Initializable {
         cm.setView(calenderView);
         ec = new EventController(cm, toDoList);
         ec.refreshEvents();
-        NotificationCenter.getInstance();
     }
 
     @FXML
