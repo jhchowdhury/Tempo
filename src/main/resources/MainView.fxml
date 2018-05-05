@@ -13,67 +13,66 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import tempo.UserInterface.*?>
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.MainView">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane>
+            <AnchorPane prefHeight="40.0" prefWidth="1280.0">
                <children>
-                  <ToolBar prefHeight="40.0" prefWidth="1280.0">
-                     <items>
-                        <Label fx:id="dataBar" prefHeight="17.0" prefWidth="1162.0" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="o" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="?" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="X" />
-                     </items>
-                  </ToolBar>
-                  <ToolBar layoutY="40.0" prefHeight="40.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <ToolBar prefHeight="40.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <items>
-                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Week" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Month" />
-                        <Region prefHeight="30.0" prefWidth="950.0">
+                      <Button mnemonicParsing="false" onAction="#openWeekly" prefHeight="25.0" prefWidth="60.0" text="Week" />
+                        <Button mnemonicParsing="false" onAction="#openMonthly" prefHeight="25.0" prefWidth="63.0" text="Month" />
+                        <Region prefHeight="40.0" prefWidth="955.0">
                            <padding>
                               <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                            </padding>
                         </Region>
-                        <Button fx:id="addEventBtn" mnemonicParsing="false" onAction="#handleEventAddBtn" prefHeight="25.0" prefWidth="30.0" text="+" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="-" />
-                        <Button fx:id="profileBtn" mnemonicParsing="false" onAction="#handleProfileBtn" prefHeight="25.0" prefWidth="30.0" text="=" />
+                        <Button mnemonicParsing="false" onAction="#handleEventAddBtn" prefHeight="25.0" prefWidth="30.0" text="+" />
+                        <Button mnemonicParsing="false" onAction="#eventDelete" prefHeight="25.0" prefWidth="30.0" text="-" />
+                        <Button mnemonicParsing="false" onAction="#handleProfileBtn" prefHeight="25.0" prefWidth="30.0" text="=" />
                         <Button mnemonicParsing="false" onAction="#logOutFromDatabase" prefHeight="25.0" prefWidth="75.0" text="Log out" />
                     </items>
                   </ToolBar>
                </children>
             </AnchorPane>
-            <AnchorPane>
+            <AnchorPane prefHeight="680.0" prefWidth="1280.0">
                <children>
-                  <HBox prefHeight="600.0" prefWidth="1280.0" AnchorPane.rightAnchor="0.0">
+                  <HBox prefHeight="640.0" prefWidth="1280.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <Pane prefHeight="600.0" prefWidth="1040.0">
+                        <Pane prefHeight="640.0" prefWidth="1040.0">
                            <children> <CalendarView fx:id="calenderView" />
                            </children> </Pane>
                         <AnchorPane>
                            <children>
-                              <AnchorPane prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: gray;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane prefHeight="640.0" prefWidth="240.0" style="-fx-background-color: gray;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Label contentDisplay="CENTER" layoutX="46.0" layoutY="14.0" prefHeight="37.0" prefWidth="149.0" text="To-Do List" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="14.0">
                                        <font>
                                           <Font name="Times New Roman" size="32.0" />
                                        </font>
                                     </Label>
-                                    <ListView layoutX="20.0" layoutY="50.0" prefHeight="260.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+                                    <ListView fx:id="toDoList" layoutX="20.0" layoutY="50.0" prefHeight="260.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
                                     <Label contentDisplay="CENTER" layoutX="70.0" layoutY="329.0" prefHeight="37.0" prefWidth="101.0" text="Friends" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="329.0">
                                        <font>
                                           <Font name="Times New Roman" size="32.0" />
                                        </font>
                                     </Label>
-                                    <ListView layoutX="20.0" layoutY="366.0" prefHeight="260.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="366.0" />
+                                    <ListView fx:id="friends" layoutX="20.0" layoutY="366.0" prefHeight="260.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="366.0" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
                      </children>
                   </HBox>
+                  <ToolBar layoutY="640.0" prefHeight="40.0" prefWidth="1280.0">
+                     <items>
+                        <Label fx:id="dataBar" prefHeight="17.0" prefWidth="975.0" />
+                        <Button mnemonicParsing="false" onAction="#addAFriend" prefHeight="25.0" prefWidth="123.0" text="Add a Friend" />
+                        <Button mnemonicParsing="false" onAction="#removeAFriend" prefHeight="25.0" prefWidth="123.0" text="Remove a Friend" />
+                        <Button mnemonicParsing="false" onAction="#helpButton" prefHeight="25.0" prefWidth="30.0" text="?" />
+                     </items>
+                  </ToolBar>
                </children>
             </AnchorPane>
             <SwingNode />

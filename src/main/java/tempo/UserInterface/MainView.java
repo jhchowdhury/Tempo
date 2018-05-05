@@ -29,12 +29,17 @@ public class MainView {
     private Label dataBar;
 
     @FXML
-    private void logOutFromDatabase(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    private ListView toDoList;
+
+    @FXML
+    private ListView friends;
+
+    @FXML
+    private void openWeekly(ActionEvent event) throws Exception {
+    }
+
+    @FXML
+    private void openMonthly(ActionEvent event) throws Exception {
     }
 
     @FXML
@@ -46,12 +51,40 @@ public class MainView {
     }
 
     @FXML
+    private void eventDelete(ActionEvent event) {
+    }
+
+    @FXML
     private void handleProfileBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ProfilePage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void logOutFromDatabase(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void addAFriend(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void removeAFriend(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void helpButton(ActionEvent event) {
+
     }
 
     private class Popup {
@@ -85,8 +118,6 @@ public class MainView {
             Scene scene1= new Scene(layout, 300, 250);
             popupwindow.setScene(scene1);
             popupwindow.showAndWait();
-
         }
-
     }
 }
