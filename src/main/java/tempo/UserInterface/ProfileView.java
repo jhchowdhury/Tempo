@@ -6,11 +6,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tempo.ProfileManagement.Profile;
 import tempo.ProfileManagement.UserProfileController;
 
 public class ProfileView {
+    @FXML
+    private  TextField txtProfileUsername;
+
+    @FXML
+    private void changeUsername(ActionEvent event) throws Exception {
+        System.out.println(txtProfileUsername.getText());
+    }
+
     @FXML
     private void logOutFromDatabase(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
@@ -30,28 +39,24 @@ public class ProfileView {
     }
 
     @FXML
-    private void changeUserame (ActionEvent) throws Exception {
+    private void changeUserame (ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
-        control.changeUserName(.getText());
     }
 
     @FXML
-    private void changeEmail (ActionEvent) throws Exception {
+    private void changeEmail (ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
-        control.changeEmail();
     }
 
     @FXML
-    private void changeName (ActionEvent) throws Exception {
+    private void changeName (ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
-        control.changeName();
     }
 
 
     @FXML
-    private void changeSurname(ActionEvent) throws Exception {
+    private void changeSurname(ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
-        control.changeSurname();
     }
 
 }
