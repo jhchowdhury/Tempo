@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tempo.ProfileManagement.Profile;
+import tempo.ProfileManagement.UserProfileController;
 
 public class ProfileView {
     @FXML
@@ -26,4 +28,30 @@ public class ProfileView {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private void changeUserame (ActionEvent) throws Exception {
+        UserProfileController control = new UserProfileController();
+        control.changeUserName(.getText());
+    }
+
+    @FXML
+    private void changeEmail (ActionEvent) throws Exception {
+        UserProfileController control = new UserProfileController();
+        control.changeEmail();
+    }
+
+    @FXML
+    private void changeName (ActionEvent) throws Exception {
+        UserProfileController control = new UserProfileController();
+        control.changeName();
+    }
+
+
+    @FXML
+    private void changeSurname(ActionEvent) throws Exception {
+        UserProfileController control = new UserProfileController();
+        control.changeSurname();
+    }
+
 }
