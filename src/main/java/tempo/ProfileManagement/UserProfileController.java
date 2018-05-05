@@ -31,10 +31,11 @@ public class UserProfileController {
     }
 
     public void changeName(String newName) {
-
+        profile.name = newName;
     }
 
     public void changeSurname(String newSurname){
-
+        profile.surname = newSurname;
     }
+
 }
