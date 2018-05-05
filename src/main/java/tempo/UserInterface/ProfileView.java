@@ -6,19 +6,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import tempo.ProfileManagement.Profile;
 import tempo.ProfileManagement.UserProfileController;
 
 public class ProfileView {
     @FXML
-    private  TextField txtProfileUsername;
+    private TextField txtProfileName;
 
     @FXML
-    private void changeUsername(ActionEvent event) throws Exception {
-        System.out.println(txtProfileUsername.getText());
-    }
+    private TextField txtProfileSurname;
+
+    @FXML
+    private TextField txtProfileUsername;
+
+    @FXML
+    private TextField txtProfileEmail;
+
+    @FXML
+    private PasswordField txtProfilePassword;
+
+    @FXML
+    private PasswordField txtProfileRePassword;
+
+    @FXML
+    private Label lblProfileChanges;
 
     @FXML
     private void logOutFromDatabase(ActionEvent event) throws Exception {
@@ -39,23 +54,57 @@ public class ProfileView {
     }
 
     @FXML
-    private void changeUserame (ActionEvent event) throws Exception {
+    private void changeName (ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
+        System.out.println(txtProfileName.getText());
+    }
+
+    @FXML
+    private void changeSurname(ActionEvent event) throws Exception {
+        System.out.println(txtProfileSurname.getText());
+    }
+
+    @FXML
+    private void changeUsername(ActionEvent event) throws Exception {
+        System.out.println(txtProfileUsername.getText());
     }
 
     @FXML
     private void changeEmail (ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
+        System.out.println(txtProfileEmail.getText());
     }
 
     @FXML
-    private void changeName (ActionEvent event) throws Exception {
+    private void changePassword(ActionEvent event) throws Exception {
+        if(txtProfilePassword.getText().equals(txtProfileRePassword.getText())){
+            UserProfileController control = new UserProfileController();
+            System.out.println(txtProfilePassword.getText());
+            lblProfileChanges.setText("Password is changed!");
+        }
+        else{
+            lblProfileChanges.setText("Rewrite passwords!");
+        }
+    }
+
+    @FXML
+    private void changeProfilePicture(ActionEvent event) throws Exception {
+        UserProfileController control = new UserProfileController();
+        System.out.println("clicked");
+    }
+
+    @FXML
+    private void cmbNameVisibility(ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
     }
 
+    @FXML
+    private void cmbEmailVisibility(ActionEvent event) throws Exception {
+        UserProfileController control = new UserProfileController();
+    }
 
     @FXML
-    private void changeSurname(ActionEvent event) throws Exception {
+    private void cmbPersonalSet(ActionEvent event) throws Exception {
         UserProfileController control = new UserProfileController();
     }
 
