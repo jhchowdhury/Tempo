@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.AuthorizationView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.AuthorizationView">
    <ImageView disable="true" fitHeight="403.0" fitWidth="654.0" layoutX="-2.0" layoutY="-1.0" opacity="0.61" AnchorPane.topAnchor="-1.0">
       <image>
          <Image url="@high-definition-los-angeles-wallpaper-images-in-3d-for-download_mexico-city-skyline_cost-effective-house-plans-images-of-bathroom-remodels-scenic-curtains-average-modular-homes-onli.jpg" />
@@ -34,6 +34,11 @@
       <children>
          <Label layoutX="10.0" layoutY="192.0" prefHeight="17.0" prefWidth="97.0" text="Re-Password:" textFill="WHITE" />
          <Button layoutX="140.0" layoutY="224.0" mnemonicParsing="false" onAction="#Register" text="Register" />
+         <Label fx:id="lblRegisterStatus" layoutX="81.0" layoutY="255.0" prefHeight="20.0" prefWidth="185.0" textFill="RED">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
       </children></AnchorPane>
    <Pane layoutX="26.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #ffcc66#ffcc66;" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="45.0">
       <children>
@@ -105,9 +110,4 @@
          </Label>
       </children>
    </Pane>
-   <Label fx:id="lblRegisterStatus" layoutX="426.0" layoutY="330.0" prefHeight="20.0" prefWidth="149.0" textFill="RED">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Label>
 </AnchorPane>
