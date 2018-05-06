@@ -1,9 +1,11 @@
 package tempo.DataManagement;
+import org.jongo.marshall.jackson.oid.ObjectId;
 import tempo.NotificationManagement.Notification;
 import tempo.ProfileManagement.Friend;
 import tempo.ProfileManagement.Profile;
 import tempo.EventManagement.Event;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Storage{
 
@@ -112,6 +114,17 @@ public class Storage{
         addEvent(event);
     }
 
+    public void addFriend(String id){
+        ArrayList<String> list;
+        if(getUser().friends == null){
+            list = new ArrayList<String>();
+        }else
+            list = new ArrayList<String>(Arrays.asList(getUser().friends));
+        list.add(id);
+        getUser().friends =  new String[list.size()];
+        getUser().friends =  list.toArray(new String[0]);
+        DatabaseInteraction.getInstance().updateDataFromDatabaseByID("profiles", getUser().profileID, getUser());
+    }
     public Notification getNotification (String notif) {
         return null;
     }

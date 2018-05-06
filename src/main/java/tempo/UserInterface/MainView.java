@@ -1,5 +1,6 @@
 package tempo.UserInterface;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,16 +14,21 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import tempo.DataManagement.CommunicationHelper;
 import tempo.DataManagement.Storage;
 import tempo.EventManagement.CalendarManager;
 import tempo.EventManagement.Event;
 import tempo.EventManagement.EventController;
+import tempo.NotificationManagement.Notification;
 import tempo.NotificationManagement.NotificationCenter;
+import tempo.ProfileManagement.FriendsController;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainView implements Initializable {
     @FXML
@@ -38,6 +44,7 @@ public class MainView implements Initializable {
     private ListView friends;
 
     private EventController ec;
+    private FriendsController fc;
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,6 +53,27 @@ public class MainView implements Initializable {
         ec = new EventController(cm, toDoList);
         ec.refreshEvents();
         NotificationCenter.getInstance();
+        fc = new FriendsController(friends);
+        fc.refreshFriendList();
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask()
+        {
+            public void run()
+            {
+                NotificationCenter.getInstance().refreshNotification();
+                System.out.println(Storage.getInstance().getUser().profileID);
+                for(Notification n: Storage.getInstance().getNotificationHolder()){
+                    if(n != null) {
+                        if(n.sender != Storage.getInstance().getUser().profileID){
+                            //NotificationCenter.getInstance().displayNotifications(n.getKey());
+                            Platform.runLater(() -> {displayNotification(n.getKey());fc.refreshFriendList();});
+                        }
+                    }
+                }
+            }
+
+        };
+        timer.scheduleAtFixedRate(task,new Date(),5000l);
     }
 
     @FXML
@@ -68,6 +96,10 @@ public class MainView implements Initializable {
     private void eventDelete(ActionEvent event) {
         ec.removeEvent(calenderView.getSelectedEventId());
         ec.refreshEvents();
+    }
+
+    private void displayNotification(String id){
+        NotificationCenter.getInstance().displayNotifications(id);
     }
 
     @FXML
@@ -99,8 +131,7 @@ public class MainView implements Initializable {
         Label labelResult= new Label("");
 
         button1.setOnAction(e -> {
-            String title = txt1.getText();
-
+            fc.addFriend(txt1.getText());
             popupwindow.close();
         });
         VBox layout= new VBox(10);

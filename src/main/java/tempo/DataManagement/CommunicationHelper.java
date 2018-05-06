@@ -1,5 +1,6 @@
 package tempo.DataManagement;
 
+import org.bson.types.ObjectId;
 import tempo.EventManagement.Event;
 import tempo.NotificationManagement.Notification;
 import tempo.ProfileManagement.Friend;
@@ -35,7 +36,8 @@ public class CommunicationHelper {
     }
 
     public void fillNotificationHolder(){
-        ArrayList<Notification> list = DatabaseInteraction.getInstance().<Notification>getDataListFromDatabase("notificiations", "reciever", Storage.getInstance().user.profileID, Notification.class);
+        ArrayList<Notification> list = DatabaseInteraction.getInstance().<Notification>getDataListFromDatabase("notificiations", "receiver", Storage.getInstance().getUser().profileID, Notification.class);
+        System.out.println(list.size());
         if(list == null)
             return;
         Storage.getInstance().setNotificationHolder(list);
@@ -56,6 +58,10 @@ public class CommunicationHelper {
     }
 
     public void fillFriendsHolder(){
+        fillProfileHolder();
+        Storage.getInstance().getFriendsHolder().clear();
+        if(Storage.getInstance().user.friends == null)
+            return;
         for(String a: Storage.getInstance().user.friends){
             Profile temppf = DatabaseInteraction.getInstance().<Profile>getDataFromDatabase("profiles","profileID", a, Profile.class);
             Friend temp = new Friend();
@@ -74,7 +80,7 @@ public class CommunicationHelper {
     public void sendNotificationToDatabase(Notification noti, String receiver){
         noti.sender = Storage.getInstance().user.profileID;
         noti.receiver = receiver;
-        DatabaseInteraction.getInstance().sendDataToDatabase("notifications", noti);
+        DatabaseInteraction.getInstance().sendDataToDatabase("notificiations", noti);
     }
 
     public void updateProfile(Profile profile){

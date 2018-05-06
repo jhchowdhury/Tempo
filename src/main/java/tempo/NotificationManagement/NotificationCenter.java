@@ -8,11 +8,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import tempo.Authorization.User;
 import tempo.DataManagement.CommunicationHelper;
 import tempo.DataManagement.DatabaseInteraction;
 import tempo.DataManagement.Storage;
+import tempo.ProfileManagement.Friend;
+import tempo.ProfileManagement.Profile;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 public class NotificationCenter {
@@ -25,8 +30,13 @@ public class NotificationCenter {
         return instance;
     }
 
+    private boolean isShow = false;
+
     public void displayNotifications(String id){
         Notification n = getNotification(id);
+        if(isShow)
+            return;
+        isShow = true;
         if(n != null) {
             Stage popupwindow = new Stage();
             popupwindow.initModality(Modality.APPLICATION_MODAL);
@@ -37,12 +47,14 @@ public class NotificationCenter {
 
             button1.setOnAction(e -> {
                 approveNotification(id);
-
+                refreshNotification();
+                isShow = false;
                 popupwindow.close();
             });
             button2.setOnAction(e -> {
                 ignoreNotification(id);
-
+                refreshNotification();
+                isShow = false;
                 popupwindow.close();
             });
             VBox layout = new VBox(10);
@@ -73,62 +85,44 @@ public class NotificationCenter {
     public void approveNotification(String id){
         Notification n = getNotification(id);
         if(n != null) {
-            if (n.sender.equals(Storage.getInstance().getUser().profileID))
-                sendNotification("accapted", n.message, n.receiver, n.notificationType * -1);
-            else
+            if (n.receiver.equals(Storage.getInstance().getUser().profileID))
                 sendNotification("accapted", n.message, n.sender, n.notificationType * -1);
+            switch(n.notificationType){
+                case 1:
+                    Storage.getInstance().addFriend(n.sender);
+                    break;
+            }
         }
-        deleteNotification(id);
-
+        deleteNotification(n.getKey());
     }
 
     public void ignoreNotification(String id){
         Notification n = getNotification(id);
         if(n != null) {
-            if (n.sender.equals(Storage.getInstance().getUser().profileID))
-                sendNotification("ignored", n.getKey(), n.receiver, n.notificationType * -1);
-            else
-                sendNotification("ignored", n.getKey(), n.sender, n.notificationType * -1);
+            deleteNotification(n.getKey());
         }
-        deleteNotification(id);
+
+    }
+
+    public boolean sendFriendRequest(String username){
+        User friend = DatabaseInteraction.getInstance().getDataFromDatabase("users", "username", username, User.class);
+        if(friend == null)
+            return false;
+        sendNotification("Friend Request", Storage.getInstance().getUser().name+" wants to be your friend!", friend.profileID, 1);
+        return true;
     }
 
     public void refreshNotification(){
         CommunicationHelper.getInstance().fillNotificationHolder();
-        ArrayList<Notification> list1 = new ArrayList<Notification>();
-        for(Notification n : Storage.getInstance().getNotificationHolder()){
-            if(n.notificationType < 0){
-                list1.add(n);
+        for (Notification n: Storage.getInstance().getNotificationHolder()) {
+            switch(n.notificationType){
+                case -1:
+                    Storage.getInstance().addFriend(n.sender);
+                    deleteNotification(n.getKey());
+                    break;
             }
         }
-        for(Notification n : Storage.getInstance().getNotificationHolder()){
-            for(Notification n1 : list1)
-                if(n.message.equals(n1.getKey()) && n.notificationType > 0){
-                    deleteNotification(n1.getKey());
-                    deleteNotification(n.getKey());
-                    if(n.notificationName == "accepted"){
-                        switch(n.notificationType){
-                            case 1:
-                                //friend request accepted
-                                break;
-                            case 2:
-                                //smartevent accepted
-                                break;
-                        }
-                    }else if(n.notificationName == "ignored"){
-                        switch(n.notificationType){
-                            case 1:
-                                //friend request ignored
-                                // do nothing
-                                break;
-                            case 2:
-                                //smartevent ignored
-                                //remove smart event ghost
-                                break;
-                        }
-                    }
-                }
-        }
+
     }
 
     public void sendNotification(String title, String massage, String receiver, int type){
