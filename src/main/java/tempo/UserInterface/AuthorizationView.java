@@ -88,7 +88,7 @@ public class AuthorizationView {
                 }
             }
             else{
-                lblRegisterStatus.setText("Rewrite passwords.");
+                lblRegisterStatus.setText("Passwords do not match! Try again!.");
             }
         }
         else{
