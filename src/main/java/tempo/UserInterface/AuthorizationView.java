@@ -77,7 +77,7 @@ public class AuthorizationView {
 
     @FXML
     private void Register(ActionEvent event) throws Exception{
-        if(!(txtSignupName.getText().equals("") && txtSignupSurname.getText().equals("") && txtSignupEmail.getText().equals("") && txtSignupUsername.getText().equals("") && txtSignupPassword.getText().equals(""))){
+        if(!(txtSignupName.getText().equals("") && txtSignupSurname.getText().equals("") && txtSignupEmail.getText().equals("") && ((txtSignupUsername.getText().length()) > 3) && ((txtSignupPassword.getText().length()) > 5)   )){
             if(txtSignupPassword.getText().equals(txtSignupRepassword.getText())){
                 RegisterManager register = new RegisterManager(txtSignupName.getText(), txtSignupSurname.getText(), txtSignupEmail.getText(), txtSignupUsername.getText(), txtSignupPassword.getText());
                 if(register.register()){
@@ -96,3 +96,4 @@ public class AuthorizationView {
         }
     }
 }
+

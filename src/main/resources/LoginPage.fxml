@@ -1,102 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" style="-fx-background-color: #595959#595959;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.AuthorizationView">
-   <AnchorPane layoutX="26.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="75.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.AuthorizationView">
+   <ImageView disable="true" fitHeight="403.0" fitWidth="654.0" layoutX="-2.0" layoutY="-1.0" opacity="0.61" AnchorPane.topAnchor="-1.0">
+      <image>
+         <Image url="@high-definition-los-angeles-wallpaper-images-in-3d-for-download_mexico-city-skyline_cost-effective-house-plans-images-of-bathroom-remodels-scenic-curtains-average-modular-homes-onli.jpg" />
+      </image>
+   </ImageView>
+   <AnchorPane layoutX="26.0" layoutY="75.0" prefHeight="157.0" prefWidth="280.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="75.0">
       <children>
          <Label fx:id="lblLoginStatus" layoutX="66.0" layoutY="175.0" prefHeight="20.0" prefWidth="149.0" textFill="RED">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
+         <Button layoutX="121.0" layoutY="110.0" mnemonicParsing="false" onAction="#Login" text="Sign in" />
       </children>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
    </AnchorPane>
-   <AnchorPane layoutX="320.0" layoutY="75.0" prefHeight="275.0" prefWidth="280.0" style="-fx-background-color: #009999;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="75.0">
+   <AnchorPane layoutX="320.0" layoutY="75.0" prefHeight="265.0" prefWidth="280.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="75.0">
       <children>
-         <Label fx:id="lblRegisterStatus" layoutX="66.0" layoutY="251.0" prefHeight="20.0" prefWidth="149.0" textFill="RED">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Label>
+         <Label layoutX="10.0" layoutY="192.0" prefHeight="17.0" prefWidth="97.0" text="Re-Password:" textFill="WHITE" />
+         <Button layoutX="140.0" layoutY="224.0" mnemonicParsing="false" onAction="#Register" text="Register" />
       </children></AnchorPane>
-   <Pane layoutX="26.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #4d9900#4d9900;" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="45.0">
+   <Pane layoutX="26.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #ffcc66#ffcc66;" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="45.0">
       <children>
-         <TextField fx:id="txtLoginUsername" layoutX="80.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" />
-         <Label layoutX="8.0" layoutY="60.0" text="Username:">
+         <TextField fx:id="txtLoginUsername" layoutX="90.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" />
+         <Label layoutX="8.0" layoutY="60.0" text="Username:" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="100.0" text="Password:">
+         <Label layoutX="10.0" layoutY="100.0" text="Password:" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <PasswordField fx:id="txtLoginPassword" layoutX="80.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" />
-         <Button layoutX="114.0" layoutY="140.0" mnemonicParsing="false" onAction="#Login" text="Sign in" />
-         <Label layoutX="104.0" layoutY="3.0" text="LOGIN">
+         <PasswordField fx:id="txtLoginPassword" layoutX="90.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" />
+         <Label layoutX="104.0" layoutY="3.0" text="LOGIN" textFill="WHITE">
             <font>
-               <Font name="Verdana Italic" size="22.0" />
+               <Font name="Kiona Regular" size="22.0" />
             </font>
          </Label>
       </children>
    </Pane>
-   <Pane layoutX="320.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #4d9900#4d9900;" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="45.0">
+   <Pane layoutX="320.0" layoutY="45.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #ffcc66#ffcc66;" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="45.0">
       <children>
-         <TextField fx:id="txtSignupUsername" layoutX="90.0" layoutY="45.0" prefHeight="25.0" prefWidth="160.0" />
-         <TextField fx:id="txtSignupName" layoutX="90.0" layoutY="80.0" prefHeight="25.0" prefWidth="160.0" />
-         <PasswordField fx:id="txtSignupPassword" layoutX="90.0" layoutY="185.0" prefHeight="25.0" prefWidth="160.0" />
-         <PasswordField fx:id="txtSignupRepassword" layoutX="90.0" layoutY="220.0" prefHeight="25.0" prefWidth="160.0" />
-         <Label layoutX="10.0" layoutY="45.0" text="Username:">
+         <TextField fx:id="txtSignupUsername" layoutX="100.0" layoutY="45.0" prefHeight="25.0" prefWidth="160.0" />
+         <TextField fx:id="txtSignupName" layoutX="100.0" layoutY="80.0" prefHeight="25.0" prefWidth="160.0" />
+         <PasswordField fx:id="txtSignupPassword" layoutX="100.0" layoutY="185.0" prefHeight="25.0" prefWidth="160.0" />
+         <PasswordField fx:id="txtSignupRepassword" layoutX="100.0" layoutY="220.0" prefHeight="25.0" prefWidth="160.0" />
+         <Label layoutX="10.0" layoutY="45.0" text="Username:" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="80.0" text="Name:">
+         <Label layoutX="10.0" layoutY="80.0" text="Name:" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <TextField fx:id="txtSignupSurname" layoutX="90.0" layoutY="115.0" prefHeight="25.0" prefWidth="160.0" />
-         <TextField fx:id="txtSignupEmail" layoutX="90.0" layoutY="150.0" prefHeight="25.0" prefWidth="160.0" />
-         <Label layoutX="10.0" layoutY="150.0" text="E-mail:">
+         <TextField fx:id="txtSignupSurname" layoutX="100.0" layoutY="115.0" prefHeight="25.0" prefWidth="160.0" />
+         <TextField fx:id="txtSignupEmail" layoutX="100.0" layoutY="150.0" prefHeight="25.0" prefWidth="160.0" />
+         <Label layoutX="10.0" layoutY="150.0" text="E-mail:" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="185.0" text="Password:">
+         <Label layoutX="10.0" layoutY="185.0" text="Password:" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="220.0" prefHeight="17.0" prefWidth="72.0" text="Re-Password:" />
-         <Label layoutX="10.0" layoutY="115.0" text="Surname:">
+         <Label layoutX="10.0" layoutY="115.0" text="Surname:" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Button layoutX="110.0" layoutY="255.0" mnemonicParsing="false" onAction="#Register" text="Register" />
-         <Label layoutX="93.0" layoutY="2.0" text="SIGN UP">
+         <Label layoutX="93.0" layoutY="2.0" text="SIGN UP" textFill="WHITE">
             <font>
-               <Font name="Verdana Italic" size="22.0" />
+               <Font name="Kiona Regular" size="22.0" />
             </font>
          </Label>
       </children>
    </Pane>
-   <Pane prefHeight="40.0" prefWidth="640.0" style="-fx-background-color: #800000#800000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+   <Pane prefHeight="40.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <children>
-         <Label layoutX="139.0" layoutY="7.0" text="TEMPO - SMART SCHEDULING APP" textFill="#ddd3d3">
+         <Label layoutX="120.0" layoutY="7.0" prefHeight="29.0" prefWidth="464.0" text="TEMPO - SMART SCHEDULING APP" textFill="WHITE">
             <font>
-               <Font name="Eras Demi ITC" size="22.0" />
+               <Font name="Adam" size="24.0" />
             </font>
          </Label>
       </children>
    </Pane>
+   <Label fx:id="lblRegisterStatus" layoutX="426.0" layoutY="330.0" prefHeight="20.0" prefWidth="149.0" textFill="RED">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
 </AnchorPane>

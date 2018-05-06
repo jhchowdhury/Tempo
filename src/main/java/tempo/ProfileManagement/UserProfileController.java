@@ -1,25 +1,50 @@
 package tempo.ProfileManagement;
-import tempo.DataManagement.Storage;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 
 public class UserProfileController {
     private Profile profile;
 
+    @FXML
+    private Label lblProfileChanges;
+
     public void changeUserName(String newName) {
-        profile.name = newName;
+        if ( newName.length() < 6) {
+            lblProfileChanges.setText("Unsuccessful! Invalid type of new username! ");
+        }
+        else {
+            profile.name = newName;
+        }
     }
 
 
     public void changeEmail(String newEmail) {
-        profile.email = newEmail;
+        if (newEmail.isEmpty()) {
+            lblProfileChanges.setText("Unsuccessful! Invalid type of new email! ");
+        }
+        else {
+            profile.email = newEmail;
+        }
     }
 
     public void changePreferences(String[] newPrefs) {
+        if (newPrefs.length < 1) {
+            lblProfileChanges.setText("Unsuccessful!");
+        }
+        else {
 
+        }
     }
 
     public void loadPreferences () {
+        if ( profile.preferences.length < 1) {
+            lblProfileChanges.setText("Unsuccessful!");
+        }
+        else {
 
+        }
     }
 
     public void addFriend(Friend newFriend ) {
@@ -31,11 +56,21 @@ public class UserProfileController {
     }
 
     public void changeName(String newName) {
-        profile.name = newName;
+        if (newName.length() < 3) {
+            lblProfileChanges.setText("Unsuccessful! Invalid type of new name! ");
+        }
+        else {
+            profile.name = newName;
+        }
     }
 
     public void changeSurname(String newSurname){
-        profile.surname = newSurname;
+        if (newSurname.length() < 2) {
+            lblProfileChanges.setText("Unsuccessful! Invalid type of new surname!");
+        }
+        else {
+            profile.surname = newSurname;
+        }
     }
 
 }

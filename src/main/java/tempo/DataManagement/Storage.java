@@ -17,7 +17,7 @@ public class Storage{
 
     public Profile user;
     private String userKey;
-    //Arraylists for ecent,profile,notification and friends
+    //Arraylists for events,profile,notification and friends
     private ArrayList<Event> eventHolder = new ArrayList<>();
     private ArrayList<Profile> profileHolder = new ArrayList<>();
     private ArrayList<Notification> notificationHolder = new ArrayList<>();
