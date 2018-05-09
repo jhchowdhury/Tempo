@@ -20,6 +20,7 @@ import tempo.EventManagement.Event;
 import tempo.EventManagement.EventController;
 import tempo.NotificationManagement.Notification;
 import tempo.NotificationManagement.NotificationCenter;
+import tempo.ProfileManagement.Friend;
 import tempo.ProfileManagement.FriendsController;
 
 import java.io.IOException;
@@ -59,20 +60,22 @@ public class MainView implements Initializable {
         {
             public void run()
             {
-                NotificationCenter.getInstance().refreshNotification();
-                System.out.println(Storage.getInstance().getUser().profileID);
-                for(Notification n: Storage.getInstance().getNotificationHolder()){
-                    if(n != null) {
-                        if(n.sender != Storage.getInstance().getUser().profileID){
-                            //NotificationCenter.getInstance().displayNotifications(n.getKey());
-                            Platform.runLater(() -> {displayNotification(n.getKey());fc.refreshFriendList();});
+                Platform.runLater(() -> {
+                    NotificationCenter.getInstance().refreshNotification();
+                    for (Notification n : Storage.getInstance().getNotificationHolder()) {
+                        if (n != null) {
+                            if (n.sender != Storage.getInstance().getUser().profileID) {
+                                //NotificationCenter.getInstance().displayNotifications(n.getKey());
+                                    displayNotification(n.getKey());
+                                    fc.refreshFriendList();
+                            }
                         }
                     }
-                }
+                });
             }
 
         };
-        timer.scheduleAtFixedRate(task,new Date(),5000l);
+        timer.scheduleAtFixedRate(task,5000l,5000l);
     }
 
     @FXML
@@ -85,8 +88,17 @@ public class MainView implements Initializable {
 
     @FXML
     private void eventDelete(ActionEvent event) {
-        ec.removeEvent(calenderView.getSelectedEventId());
+        if(!toDoList.getSelectionModel().isEmpty()){
+            Event e = (Event)toDoList.getSelectionModel().getSelectedItem();
+            ec.removeEvent(e.getKey());
+        }else
+            ec.removeEvent(calenderView.getSelectedEventId());
         ec.refreshEvents();
+    }
+
+    @FXML
+    private void onCalendarClicked(){
+        toDoList.getSelectionModel().clearSelection();
     }
 
     private void displayNotification(String id){
@@ -142,12 +154,14 @@ public class MainView implements Initializable {
         ListView list1 = new ListView();
         Button button1= new Button("Remove Friend");
         Label labelResult= new Label("");
-        list1.getItems().addAll("Burak", "Kaan", "Mert");
+        list1.getItems().addAll(Storage.getInstance().getFriendsHolder());
         button1.setOnAction(e -> {
-            String title;
+            Friend friend = new Friend();
             if(!list1.getSelectionModel().isEmpty())
-                title = list1.getSelectionModel().getSelectedItem().toString();
-
+                friend = (Friend) list1.getSelectionModel().getSelectedItem();
+                if(friend.getFriendID() != null)
+                    fc.removeFriend(friend.getFriendID());
+                fc.refreshFriendList();
             popupwindow.close();
         });
         VBox layout= new VBox(10);

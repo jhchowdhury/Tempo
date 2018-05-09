@@ -37,7 +37,6 @@ public class CommunicationHelper {
 
     public void fillNotificationHolder(){
         ArrayList<Notification> list = DatabaseInteraction.getInstance().<Notification>getDataListFromDatabase("notificiations", "receiver", Storage.getInstance().getUser().profileID, Notification.class);
-        System.out.println(list.size());
         if(list == null)
             return;
         Storage.getInstance().setNotificationHolder(list);

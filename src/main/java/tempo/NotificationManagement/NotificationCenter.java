@@ -112,10 +112,10 @@ public class NotificationCenter {
         return true;
     }
 
-    public boolean sendDeleteFriend(Friend friend){
+    public boolean sendDeleteFriend(String friend){
         if(friend == null)
             return false;
-        sendNotification("Friend Deletion", "You have one less friend!", friend.getFriendID(), -2);
+        sendNotification("Friend Deletion", "You have one less friend!", friend, -2);
         return true;
     }
 
