@@ -35,7 +35,7 @@ public class FriendsController {
     public void fillFriendList(){
         friendList.getItems().clear();
         for(Friend e: Storage.getInstance().getFriendsHolder()){
-            friendList.getItems().add(e.getProfile().name +" "+e.getProfile().surname);
+            friendList.getItems().add(e);
         }
     }
 }

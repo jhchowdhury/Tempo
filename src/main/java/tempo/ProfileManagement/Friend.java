@@ -31,4 +31,9 @@ public class Friend {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+
+    @Override
+    public String toString() {
+        return String.format(name +" "+profile.surname);
+    }
 }
