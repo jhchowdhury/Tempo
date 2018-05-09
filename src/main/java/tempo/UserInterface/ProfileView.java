@@ -1,5 +1,6 @@
 package tempo.UserInterface;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import tempo.DataManagement.CommunicationHelper;
+import tempo.DataManagement.DatabaseInteraction;
+import tempo.DataManagement.Storage;
+import tempo.ProfileManagement.Profile;
 import tempo.ProfileManagement.UserProfileController;
+
+import java.util.ArrayList;
 
 public class ProfileView {
     //text field's name
@@ -39,7 +46,7 @@ public class ProfileView {
 
     @FXML
     private void logOutFromDatabase(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/LoginPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -50,7 +57,7 @@ public class ProfileView {
 
     @FXML
     private void goBackToCalendar(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/MainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -61,59 +68,58 @@ public class ProfileView {
 
     @FXML
     private void changeName (ActionEvent event) throws Exception {
-        UserProfileController control = new UserProfileController();
-        System.out.println(txtProfileName.getText());
+        //System.out.println(txtProfileName.getText());
+        //ArrayList<Profile> = DatabaseInteraction.getInstance().getDataListFromDatabase("profile","name", Storage.getInstance(), Profile.class);
+        Storage.getInstance().getUser().name = txtProfileName.getText();
+        CommunicationHelper.getInstance().updateProfile(Storage.getInstance().user);
+
     }
 
     //method for changing surname
 
     @FXML
     private void changeSurname(ActionEvent event) throws Exception {
-        System.out.println(txtProfileSurname.getText());
+        //System.out.println(txtProfileSurname.getText());
+        Storage.getInstance().getUser().surname = txtProfileSurname.getText();
+        CommunicationHelper.getInstance().updateProfile(Storage.getInstance().user);
+
     }
 
     //method for changing username
 
     @FXML
     private void changeUsername(ActionEvent event) throws Exception {
-        System.out.println(txtProfileUsername.getText());
+        //System.out.println(txtProfileUsername.getText());
     }
 
     //method for changing email
 
     @FXML
     private void changeEmail (ActionEvent event) throws Exception {
-        UserProfileController control = new UserProfileController();
-        System.out.println(txtProfileEmail.getText());
+        //System.out.println(txtProfileEmail.getText());
+        Storage.getInstance().getUser().email = txtProfileEmail.getText();
+        CommunicationHelper.getInstance().updateProfile(Storage.getInstance().user);
     }
 
     //method for changing password
 
     @FXML
     private void changePassword(ActionEvent event) throws Exception {
-        if(txtProfilePassword.getText().equals(txtProfileRePassword.getText())){
-            UserProfileController control = new UserProfileController();
-            System.out.println(txtProfilePassword.getText());
-            lblProfileChanges.setText("Password is changed!");
-        }
-        else{
-            lblProfileChanges.setText("Rewrite passwords!");
-        }
+
     }
 
     //method for changing profile picture
 
     @FXML
     private void changeProfilePicture(ActionEvent event) throws Exception {
-        UserProfileController control = new UserProfileController();
-        System.out.println("clicked");
+        //??????
     }
 
     //method for changing visibility of name
 
     @FXML
     private void cmbNameVisibility(ActionEvent event) throws Exception {
-        UserProfileController control = new UserProfileController();
+       //Storage.getInstance().getUser().preferences
     }
 
     //method for changing visibility of email
@@ -121,7 +127,7 @@ public class ProfileView {
 
     @FXML
     private void cmbEmailVisibility(ActionEvent event) throws Exception {
-        UserProfileController control = new UserProfileController();
+
     }
 
     //method for changing visibility of personal set
@@ -129,7 +135,7 @@ public class ProfileView {
 
     @FXML
     private void cmbPersonalSet(ActionEvent event) throws Exception {
-        UserProfileController control = new UserProfileController();
+
     }
 
 }
