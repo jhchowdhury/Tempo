@@ -65,6 +65,7 @@ public class ProfileView {
     }
 
     //method for changing name
+    //
 
     @FXML
     private void changeName (ActionEvent event) throws Exception {
