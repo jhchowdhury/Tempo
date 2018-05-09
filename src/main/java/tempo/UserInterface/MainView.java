@@ -212,20 +212,20 @@ public class MainView implements Initializable {
                     event.timeless = false;
                     event.permanent = false;
                     event.completed = false;
-                    event.date = start;
-                    event.duration = end;
                     event.type = 2;
                     start = new Date(txt2.getValue().getYear(), txt2.getValue().getMonthValue(), txt2.getValue().getDayOfMonth());
                     end = new Date(txt3.getValue().getYear(), txt3.getValue().getMonthValue(), txt3.getValue().getDayOfMonth());
+                    event.date = start;
+                    event.duration = end;
                 } else if(typeComboBox.getValue().toString().equals("Permanent")){
                     event.timeless = false;
                     event.permanent = true;
                     event.completed = false;
-                    event.date = start;
-                    event.duration = end;
                     event.type = 3;
                     start = new Date(txt2.getValue().getYear(), txt2.getValue().getMonthValue(), txt2.getValue().getDayOfMonth());
                     end = new Date(txt3.getValue().getYear(), txt3.getValue().getMonthValue(), txt3.getValue().getDayOfMonth());
+                    event.date = start;
+                    event.duration = end;
                 }
                 ec.addEvent(event);
                 popupwindow.close();
