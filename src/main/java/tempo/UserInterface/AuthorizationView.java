@@ -66,22 +66,32 @@ public class AuthorizationView {
     }
 
     @FXML
-    private void startRegister(ActionEvent event) throws Exception{
-        if(!(txtSignupName.getText().equals("") && txtSignupSurname.getText().equals("") && txtSignupEmail.getText().equals("") && txtSignupUsername.getText().equals("") && txtSignupPassword.getText().equals(""))){
-            if(txtSignupPassword.getText().equals(txtSignupRepassword.getText())){
-                RegisterManager register = new RegisterManager(txtSignupName.getText(), txtSignupSurname.getText(), txtSignupEmail.getText(), txtSignupUsername.getText(), txtSignupPassword.getText());
-                if(register.register()){
-                    lblRegisterStatus.setText("Register is succesful!");
-                }
-                else{
-                    lblRegisterStatus.setText("Register is unsuccesful!");
+    private void startRegister(ActionEvent event) throws Exception {
+        if (!(txtSignupName.getText().equals("") && txtSignupSurname.getText().equals("") && txtSignupEmail.getText().equals("") && (txtSignupUsername.getText().equals("") && txtSignupPassword.getText().equals("")))) {
+            if ((txtSignupUsername.getText().length() < 4) || (txtSignupName.getText().length() < 2) || (txtSignupSurname.getText().length() < 2)) {
+                lblRegisterStatus.setText("Invalid length for username,name or surname!");
+            } else {
+                if (txtSignupEmail.getText().length() < 8) {
+                    lblRegisterStatus.setText("Invalid email!");
+                } else {
+                    if (txtSignupPassword.getText().length() > 5) {
+                        if (txtSignupPassword.getText().equals(txtSignupRepassword.getText())) {
+                            RegisterManager register = new RegisterManager(txtSignupName.getText(), txtSignupSurname.getText(), txtSignupEmail.getText(), txtSignupUsername.getText(), txtSignupPassword.getText());
+                            if (register.register()) {
+                                lblRegisterStatus.setText("Register is succesful!");
+                            } else {
+                                lblRegisterStatus.setText("Register is unsuccesful!");
+                            }
+                        } else {
+                            lblRegisterStatus.setText("Passwords do not match! Try again!.");
+                        }
+                    } else {
+                        lblRegisterStatus.setText("Password should be minimum 6 characters!");
+                    }
+
                 }
             }
-            else{
-                lblRegisterStatus.setText("Rewrite passwords.");
-            }
-        }
-        else{
+        } else {
             lblRegisterStatus.setText("Fill everything!");
         }
     }
