@@ -138,6 +138,16 @@ public class Storage{
         DatabaseInteraction.getInstance().updateDataFromDatabaseByID("profiles", getUser().profileID, getUser());
     }
 
+    public void clear(){
+        Profile user = null;
+        String userKey = null;
+
+        ArrayList<Event> eventHolder = new ArrayList<>();
+        ArrayList<Profile> profileHolder = new ArrayList<>();
+        ArrayList<Notification> notificationHolder = new ArrayList<>();
+        ArrayList<Friend> friendsHolder = new ArrayList<>();
+    }
+
     public Notification getNotification (String notif) {
         return null;
     }

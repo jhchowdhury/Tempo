@@ -116,6 +116,7 @@ public class MainView implements Initializable {
 
     @FXML
     private void logOutFromDatabase(ActionEvent event) throws Exception {
+        Storage.getInstance().clear();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/LoginPage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
