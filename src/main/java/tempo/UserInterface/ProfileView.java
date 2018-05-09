@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-import tempo.ProfileManagement.Profile;
 import tempo.ProfileManagement.UserProfileController;
 
 public class ProfileView {
@@ -40,7 +39,7 @@ public class ProfileView {
 
     @FXML
     private void logOutFromDatabase(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/LoginPage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -51,7 +50,7 @@ public class ProfileView {
 
     @FXML
     private void goBackToCalendar(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/MainView.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

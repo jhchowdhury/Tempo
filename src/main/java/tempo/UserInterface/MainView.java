@@ -14,7 +14,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import tempo.DataManagement.CommunicationHelper;
 import tempo.DataManagement.Storage;
 import tempo.EventManagement.CalendarManager;
 import tempo.EventManagement.Event;
@@ -104,7 +103,7 @@ public class MainView implements Initializable {
 
     @FXML
     private void handleProfileBtn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ProfilePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/ProfilePage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -113,7 +112,7 @@ public class MainView implements Initializable {
 
     @FXML
     private void logOutFromDatabase(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/LoginPage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
