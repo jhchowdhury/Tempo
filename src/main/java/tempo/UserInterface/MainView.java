@@ -76,14 +76,6 @@ public class MainView implements Initializable {
     }
 
     @FXML
-    private void openWeekly(ActionEvent event) throws Exception {
-    }
-
-    @FXML
-    private void openMonthly(ActionEvent event) throws Exception {
-    }
-
-    @FXML
     private void handleEventAddBtn(ActionEvent event) {
         // Button was clicked, do something...
         dataBar.setText("Button Action\n");
