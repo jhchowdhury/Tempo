@@ -47,8 +47,19 @@ public class AuthorizationView {
 
     //methods for FXML
 
+
     @FXML
-    private void startLogin(ActionEvent event) throws Exception{
+    private void back(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/StartMenu.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    @FXML
+    private void login(ActionEvent event) throws Exception{
         LoginManager login = new LoginManager();
         login.setUsername(txtLoginUsername.getText());
         login.setPassword(txtLoginPassword.getText());
@@ -66,7 +77,7 @@ public class AuthorizationView {
     }
 
     @FXML
-    private void startRegister(ActionEvent event) throws Exception {
+    private void register(ActionEvent event) throws Exception {
         if (!(txtSignupName.getText().equals("") && txtSignupSurname.getText().equals("") && txtSignupEmail.getText().equals("") && (txtSignupUsername.getText().equals("") && txtSignupPassword.getText().equals("")))) {
             if ((txtSignupUsername.getText().length() < 4) || (txtSignupName.getText().length() < 2) || (txtSignupSurname.getText().length() < 2)) {
                 lblRegisterStatus.setText("Invalid length for username,name or surname!");

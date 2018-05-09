@@ -16,6 +16,11 @@
             <Image url="@../Images/icon.jpg" />
          </image>
       </ImageView>
+      <JFXButton layoutX="14.0" layoutY="17.0" onAction="#back" text="Back" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Kiona Regular" size="20.0" />
+         </font>
+      </JFXButton>
       <JFXTextField fx:id="txtLoginUsername" alignment="CENTER" focusColor="WHITE" layoutX="20.0" layoutY="268.0" prefHeight="44.0" prefWidth="320.0" promptText="Username" unFocusColor="BLACK">
          <font>
             <Font size="20.0" />
@@ -29,7 +34,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <JFXButton layoutX="123.0" layoutY="413.0" onAction="#startLogin" text="LOGIN" textFill="WHITE">
+      <JFXButton layoutX="123.0" layoutY="413.0" onAction="#login" text="LOGIN" textFill="WHITE">
          <font>
             <Font name="Kiona Regular" size="26.0" />
          </font>

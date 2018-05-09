@@ -9,6 +9,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="360.0" style="-fx-background-color: da1f26;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.AuthorizationView">
    <children>
+      <JFXButton layoutX="14.0" layoutY="14.0" onAction="#back" text="Back" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Kiona Regular" size="20.0" />
+         </font>
+      </JFXButton>
       <Label layoutX="122.0" layoutY="14.0" text="sign up" textFill="WHITE">
          <font>
             <Font name="Kiona Regular" size="30.0" />
@@ -54,7 +59,7 @@
             <Font name="Kiona Regular" size="26.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="172.0" layoutY="405.0" onAction="#startRegister" text="REGISTER" textFill="WHITE">
+      <JFXButton layoutX="172.0" layoutY="405.0" onAction="#register" text="REGISTER" textFill="WHITE">
          <font>
             <Font name="Kiona Regular" size="26.0" />
          </font>
