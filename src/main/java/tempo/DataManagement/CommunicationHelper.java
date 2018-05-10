@@ -83,6 +83,6 @@ public class CommunicationHelper {
     }
 
     public void updateProfile(Profile profile){
-        DatabaseInteraction.getInstance().<Profile>updateDataFromDatabase("Profile", "profileID", Storage.getInstance().user.profileID, profile);
+        DatabaseInteraction.getInstance().<Profile>updateDataFromDatabaseByID("profiles", Storage.getInstance().user.getKey(), profile);
     }
 }
