@@ -49,7 +49,7 @@
             <Font size="20.0" />
          </font>
       </JFXPasswordField>
-      <Label fx:id="lblRegisterStatus" layoutX="27.0" layoutY="375.0" prefHeight="30.0" prefWidth="300.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="lblRegisterStatus" alignment="CENTER" layoutX="27.0" layoutY="375.0" prefHeight="30.0" prefWidth="300.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
