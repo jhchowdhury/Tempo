@@ -19,32 +19,32 @@
             <Font name="Kiona Regular" size="30.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtSignupUsername" focusColor="WHITE" layoutX="30.0" layoutY="54.0" prefHeight="44.0" prefWidth="300.0" promptText="Username" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtSignupUsername" alignment="CENTER" focusColor="WHITE" layoutX="30.0" layoutY="54.0" prefHeight="44.0" prefWidth="300.0" promptText="Username" unFocusColor="#515151">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtSignupName" focusColor="WHITE" layoutX="30.0" layoutY="104.0" prefHeight="44.0" prefWidth="300.0" promptText="Name" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtSignupName" alignment="CENTER" focusColor="WHITE" layoutX="30.0" layoutY="104.0" prefHeight="44.0" prefWidth="300.0" promptText="Name" unFocusColor="#515151">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtSignupSurname" focusColor="WHITE" layoutX="30.0" layoutY="154.0" prefHeight="44.0" prefWidth="300.0" promptText="Surname" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtSignupSurname" alignment="CENTER" focusColor="WHITE" layoutX="30.0" layoutY="154.0" prefHeight="44.0" prefWidth="300.0" promptText="Surname" unFocusColor="#515151">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtSignupEmail" focusColor="WHITE" layoutX="30.0" layoutY="204.0" prefHeight="44.0" prefWidth="300.0" promptText="E-mail" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtSignupEmail" alignment="CENTER" focusColor="WHITE" layoutX="30.0" layoutY="204.0" prefHeight="44.0" prefWidth="300.0" promptText="E-mail" unFocusColor="#515151">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="txtSignupPassword" focusColor="WHITE" layoutX="30.0" layoutY="254.0" prefHeight="44.0" prefWidth="300.0" promptText="Password" unFocusColor="BLACK">
+      <JFXPasswordField fx:id="txtSignupPassword" alignment="CENTER" focusColor="WHITE" layoutX="30.0" layoutY="254.0" prefHeight="44.0" prefWidth="300.0" promptText="Password" unFocusColor="#515151">
          <font>
             <Font size="20.0" />
          </font>
       </JFXPasswordField>
-      <JFXPasswordField fx:id="txtSignupRepassword" focusColor="WHITE" layoutX="30.0" layoutY="304.0" prefHeight="44.0" prefWidth="300.0" promptText="Re-write Password" unFocusColor="BLACK">
+      <JFXPasswordField fx:id="txtSignupRepassword" alignment="CENTER" focusColor="WHITE" layoutX="30.0" layoutY="304.0" prefHeight="44.0" prefWidth="300.0" promptText="Re-write Password" unFocusColor="#515151">
          <font>
             <Font size="20.0" />
          </font>
