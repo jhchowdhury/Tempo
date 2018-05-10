@@ -27,14 +27,6 @@ public class CommunicationHelper {
         fillFriendsHolder();
     }
 
-    public void checkLogin(){
-
-    }
-
-    public void createNewUser(){
-
-    }
-
     public void fillNotificationHolder(){
         ArrayList<Notification> list = DatabaseInteraction.getInstance().<Notification>getDataListFromDatabase("notificiations", "receiver", Storage.getInstance().getUser().profileID, Notification.class);
         if(list == null)
