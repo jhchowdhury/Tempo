@@ -8,16 +8,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="360.0" style="-fx-background-color: da1f26;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tempo.UserInterface.Main">
    <children>
-      <JFXButton layoutX="123.0" layoutY="325.0" onAction="#startLogin" text="LOGIN" textFill="WHITE">
-         <font>
-            <Font name="Kiona Regular" size="26.0" />
-         </font></JFXButton>
-      <ImageView fitHeight="241.0" fitWidth="265.0" layoutX="66.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="241.0" fitWidth="265.0" layoutX="66.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/icon.jpg" />
          </image>
       </ImageView>
-      <JFXButton layoutX="101.0" layoutY="389.0" onAction="#startRegister" text="REGISTER" textFill="WHITE">
+      <JFXButton layoutX="123.0" layoutY="336.0" onAction="#startLogin" text="LOGIN" textFill="WHITE">
+         <font>
+            <Font name="Kiona Regular" size="26.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="101.0" layoutY="400.0" onAction="#startRegister" text="REGISTER" textFill="WHITE">
          <font>
             <Font name="Kiona Regular" size="26.0" />
          </font>
