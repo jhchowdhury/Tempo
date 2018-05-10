@@ -23,6 +23,7 @@ import tempo.NotificationManagement.Notification;
 import tempo.NotificationManagement.NotificationCenter;
 import tempo.ProfileManagement.Friend;
 import tempo.ProfileManagement.FriendsController;
+import com.jfoenix.controls.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +44,30 @@ public class MainView implements Initializable {
 
     @FXML
     private ListView friends;
+
+    @FXML
+    private JFXTextField eventTitle;
+
+    @FXML
+    private JFXDatePicker startDate;
+
+    @FXML
+    private JFXDatePicker endDate;
+
+    @FXML
+    private JFXCheckBox permanent;
+
+    @FXML
+    private JFXComboBox<String> eventType;
+    //to initialize eventTypes
+    //eventType.getItems().add("Temporary");
+    //eventType.getItems().add("Personal");
+
+    @FXML
+    private JFXTextField friendName;
+
+    @FXML
+    private JFXListView friendList;
 
     private EventController ec;
     private FriendsController fc;
@@ -176,6 +201,22 @@ public class MainView implements Initializable {
         Scene scene1= new Scene(layout, 300, 300);
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
+    }
+
+    //for new popupwindows
+    @FXML
+    private void createEvent(ActionEvent event) {
+
+    }
+    //for new popupwindows
+    @FXML
+    private void addFriend(ActionEvent event) {
+
+    }
+    //for new popupwindows
+    @FXML
+    private void removeFriend(ActionEvent event) {
+
     }
 
     @FXML
