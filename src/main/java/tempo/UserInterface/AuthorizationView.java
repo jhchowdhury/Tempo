@@ -80,7 +80,7 @@ public class AuthorizationView {
     private void register(ActionEvent event) throws Exception {
         if (!(txtSignupName.getText().equals("") && txtSignupSurname.getText().equals("") && txtSignupEmail.getText().equals("") && (txtSignupUsername.getText().equals("") && txtSignupPassword.getText().equals("")))) {
             if ((txtSignupUsername.getText().length() < 4) || (txtSignupName.getText().length() < 2) || (txtSignupSurname.getText().length() < 2)) {
-                lblRegisterStatus.setText("Invalid length for username,name or surname!");
+                lblRegisterStatus.setText("Invalid length for names!");
             } else {
                 if (txtSignupEmail.getText().length() < 8) {
                     lblRegisterStatus.setText("Invalid email!");
@@ -94,10 +94,10 @@ public class AuthorizationView {
                                 lblRegisterStatus.setText("Register is unsuccesful!");
                             }
                         } else {
-                            lblRegisterStatus.setText("Passwords do not match! Try again!.");
+                            lblRegisterStatus.setText("Passwords don't match!");
                         }
                     } else {
-                        lblRegisterStatus.setText("Password should be minimum 6 characters!");
+                        lblRegisterStatus.setText("Password length > 5!");
                     }
 
                 }
