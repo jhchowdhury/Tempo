@@ -8,6 +8,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
@@ -22,22 +24,22 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="1280.0" style="-fx-background-color: WHITE;">
                            <children>
-                              <Label layoutX="131.0" layoutY="191.0" text="Name:">
+                              <Label layoutX="635.0" layoutY="177.0" text="Name:">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="131.0" layoutY="261.0" text="Surname:">
+                              <Label layoutX="635.0" layoutY="247.0" text="Surname:">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="131.0" layoutY="331.0" text="Username:">
+                              <Label layoutX="635.0" layoutY="317.0" text="Username:">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="131.0" layoutY="401.0" text="E-mail:">
+                              <Label layoutX="635.0" layoutY="387.0" text="E-mail:">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
@@ -47,26 +49,32 @@
                                     <Font name="Kiona Regular" size="36.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="txtInfoName" editable="false" layoutX="339.0" layoutY="167.0">
+                              <JFXTextField fx:id="txtInfoName" editable="false" layoutX="843.0" layoutY="153.0">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtInfoSurname" editable="false" layoutX="338.0" layoutY="239.0">
+                              <JFXTextField fx:id="txtInfoSurname" editable="false" layoutX="842.0" layoutY="225.0">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField layoutX="338.0" layoutY="309.0">
+                              <JFXTextField fx:id="txtInfoUsername" layoutX="842.0" layoutY="295.0">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField layoutX="338.0" layoutY="375.0">
+                              <JFXTextField fx:id="txtInfoEmail" layoutX="842.0" layoutY="361.0">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </JFXTextField>
+                              <JFXButton layoutX="176.0" layoutY="420.0" onAction="#changePP" text="Change Profile Picture" />
+                              <ImageView fx:id="profPic" fitHeight="256.0" fitWidth="256.0" layoutX="161.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/blank-avatar.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                   </content>
@@ -100,7 +108,7 @@
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtProfileSurnamet" layoutX="327.0" layoutY="289.0" prefHeight="27.0" prefWidth="444.0">
+                              <JFXTextField fx:id="txtProfileSurname" layoutX="327.0" layoutY="289.0" prefHeight="27.0" prefWidth="444.0">
                                  <font>
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>

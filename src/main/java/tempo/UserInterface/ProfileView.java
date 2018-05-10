@@ -5,22 +5,22 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import tempo.DataManagement.CommunicationHelper;
-import tempo.DataManagement.DatabaseInteraction;
 import tempo.DataManagement.Storage;
-import tempo.ProfileManagement.Profile;
-import tempo.ProfileManagement.UserProfileController;
 
-import java.util.ArrayList;
+import javax.swing.text.html.ImageView;
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ProfileView {
+public class ProfileView implements Initializable {
     //text field's name
     @FXML
     private JFXTextField txtProfileName;
@@ -42,6 +42,12 @@ public class ProfileView {
 
     @FXML
     private JFXTextField txtInfoEmail;
+
+    @FXML
+    private Label lblBigName;
+
+    @FXML
+    private javafx.scene.image.ImageView profPic;
 
 
 
@@ -83,7 +89,6 @@ public class ProfileView {
 
     @FXML
     private void changeName (ActionEvent event) throws Exception {
-        System.out.println("triggered!");
         Storage.getInstance().getUser().name = txtProfileName.getText();
         //to display
         txtInfoName.setText(txtProfileName.getText());
@@ -96,6 +101,9 @@ public class ProfileView {
     @FXML
     private void changeSurname(ActionEvent event) throws Exception {
         //System.out.println(txtProfileSurname.getText());
+        System.out.println("triggered!");
+        System.out.println( txtProfileSurname.getText());
+
         Storage.getInstance().getUser().surname = txtProfileSurname.getText();
         //to display
         txtInfoSurname.setText(txtProfileSurname.getText());
@@ -156,6 +164,37 @@ public class ProfileView {
 
     @FXML
     private void cmbPersonalSet(ActionEvent event) throws Exception {
+
+    }
+
+    @FXML
+    public void initialize(URL location, ResourceBundle resources) {
+        txtInfoName.setText(Storage.getInstance().getUser().name);
+        txtInfoSurname.setText(Storage.getInstance().getUser().surname);
+        txtInfoEmail.setText(Storage.getInstance().getUser().email);
+        txtInfoUsername.setText(Storage.getInstance().getUsr().username);
+        lblBigName.setText(Storage.getInstance().getUsr().username);
+
+        //for pp
+        /*
+        ImageView profPic = new ImageView();
+        profPic.setSize(256,256);
+
+        //file chooser
+        final FileChooser fileChooser = new FileChooser();
+
+        //get URL
+        File file = fileChooser.showOpenDialog();  //stage i gircen showOpen a
+
+        String ppURL = file.toURI().toURL().toString();
+        Im
+        */
+
+
+    }
+
+    @FXML
+    private void changePP (ActionEvent event) throws Exception {
 
     }
 
