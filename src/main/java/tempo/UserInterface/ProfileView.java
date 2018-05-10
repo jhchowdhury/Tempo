@@ -1,6 +1,7 @@
 package tempo.UserInterface;
 
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,16 +10,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tempo.DataManagement.CommunicationHelper;
 import tempo.DataManagement.Storage;
 
 import javax.swing.text.html.ImageView;
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class ProfileView implements Initializable {
     //text field's name
@@ -54,7 +61,7 @@ public class ProfileView implements Initializable {
     @FXML
     private Label lblProfileChanges;
 
-
+    private Stage stage;
     /*
     public ProfileView() {
         txtInfoName.setText("Name");
@@ -68,7 +75,7 @@ public class ProfileView implements Initializable {
     private void logOutFromDatabase(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/LoginPage.fxml"));
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -175,20 +182,7 @@ public class ProfileView implements Initializable {
         txtInfoUsername.setText(Storage.getInstance().getUsr().username);
         lblBigName.setText(Storage.getInstance().getUsr().username);
 
-        //for pp
-        /*
-        ImageView profPic = new ImageView();
-        profPic.setSize(256,256);
 
-        //file chooser
-        final FileChooser fileChooser = new FileChooser();
-
-        //get URL
-        File file = fileChooser.showOpenDialog();  //stage i gircen showOpen a
-
-        String ppURL = file.toURI().toURL().toString();
-        Im
-        */
 
 
     }
@@ -196,6 +190,38 @@ public class ProfileView implements Initializable {
     @FXML
     private void changePP (ActionEvent event) throws Exception {
 
+        try {
+            //file chooser
+            final FileChooser fileChooser = new FileChooser();
+
+            //get URL
+            File file;
+            file = fileChooser.showOpenDialog(stage);
+
+            String ppURL = file.toURI().toURL().toString();
+            Image imgLoad = new Image(ppURL);
+
+            //pass image to imageview
+            profPic.setImage(imgLoad);
+        }
+        catch (MalformedURLException e) {
+            Logger.getLogger(profPic.toString());
+        }
+
+        /*
+        Stage popup = new Stage();
+        popup.initModality(Modality.APPLICATION_MODAL);
+        popup.setTitle("Upload Profile Picture");
+        TextField txtForPic = new TextField();
+        String path = txtForPic.getText();
+        String path2 = txtForPic.getText();
+
+        Image img = new Image(path);
+        profPic.setImage(img);
+
+        JFXButton bttn = new JFXButton("Done", profPic);
+        bttn.setOnAction(event1-> getHostServices().showDocument(path2));
+        */
     }
 
 }
