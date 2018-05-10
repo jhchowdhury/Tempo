@@ -98,6 +98,10 @@ public class MainView implements Initializable {
     }
 
     @FXML
+    private void smartEventAdd(ActionEvent event){
+    }
+
+    @FXML
     private void onCalendarClicked(){
         toDoList.getSelectionModel().clearSelection();
     }
