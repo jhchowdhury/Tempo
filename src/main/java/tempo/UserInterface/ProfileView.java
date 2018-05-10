@@ -83,6 +83,7 @@ public class ProfileView {
 
     @FXML
     private void changeName (ActionEvent event) throws Exception {
+        System.out.println("triggered!");
         Storage.getInstance().getUser().name = txtProfileName.getText();
         //to display
         txtInfoName.setText(txtProfileName.getText());
