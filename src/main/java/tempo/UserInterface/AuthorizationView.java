@@ -1,8 +1,10 @@
 package tempo.UserInterface;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,8 +13,20 @@ import javafx.stage.Stage;
 import tempo.Authorization.LoginManager;
 import tempo.Authorization.RegisterManager;
 import com.jfoenix.controls.*;
+import tempo.DataManagement.Storage;
+import tempo.EventManagement.CalendarManager;
+import tempo.EventManagement.EventController;
+import tempo.NotificationManagement.Notification;
+import tempo.NotificationManagement.NotificationCenter;
+import tempo.ProfileManagement.FriendsController;
 
-public class AuthorizationView {
+import java.net.URL;
+import java.util.Date;
+import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class AuthorizationView implements Initializable {
     //FXMLs
 
     @FXML
@@ -114,5 +128,21 @@ public class AuthorizationView {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void initialize(URL location, ResourceBundle resources) {
+        if(txtLoginUsername !=null){
+            txtLoginUsername.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+            txtLoginPassword.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+        }
+        else {
+            txtSignupUsername.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+            txtSignupName.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+            txtSignupSurname.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+            txtSignupEmail.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+            txtSignupPassword.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+            txtSignupRepassword.setStyle("-fx-prompt-text-fill: white; -fx-text-inner-color: white");
+        }
     }
 }
