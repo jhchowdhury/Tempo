@@ -96,7 +96,7 @@
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="131.0" layoutY="400.0" text="Email:">
+                              <Label layoutX="131.0" layoutY="400.0" text="E-mail:">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
@@ -106,17 +106,17 @@
                                     <Font name="Kiona Regular" size="36.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="txtProfileName" layoutX="327.0" layoutY="189.0" prefHeight="44.0" prefWidth="445.0">
+                              <JFXTextField fx:id="txtProfileName" layoutX="327.0" layoutY="189.0" prefHeight="44.0" prefWidth="445.0" promptText="Enter a new name!">
                                  <font>
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtProfileSurname" layoutX="327.0" layoutY="289.0" prefHeight="27.0" prefWidth="444.0">
+                              <JFXTextField fx:id="txtProfileSurname" layoutX="327.0" layoutY="289.0" prefHeight="27.0" prefWidth="444.0" promptText="Enter a new surname!">
                                  <font>
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtProfileEmail" layoutX="327.0" layoutY="389.0" prefHeight="44.0" prefWidth="440.0">
+                              <JFXTextField fx:id="txtProfileEmail" layoutX="327.0" layoutY="389.0" prefHeight="44.0" prefWidth="440.0" promptText="Enter a new e-mail">
                                  <font>
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>
