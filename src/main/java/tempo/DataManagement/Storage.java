@@ -1,5 +1,6 @@
 package tempo.DataManagement;
 import org.jongo.marshall.jackson.oid.ObjectId;
+import tempo.Authorization.User;
 import tempo.NotificationManagement.Notification;
 import tempo.ProfileManagement.Friend;
 import tempo.ProfileManagement.Profile;
@@ -19,6 +20,7 @@ public class Storage{
 
     public Profile user;
     private String userKey;
+    public User usr;
     //Arraylists for ecent,profile,notification and friends
     private ArrayList<Event> eventHolder = new ArrayList<>();
     private ArrayList<Profile> profileHolder = new ArrayList<>();
@@ -26,6 +28,10 @@ public class Storage{
     private ArrayList<Friend> friendsHolder = new ArrayList<>();
 
     //methods
+
+    public User getUsr() {return usr;}
+
+    public void setUsr(User usr1) { usr = usr1;}
 
     public ArrayList<Friend> getFriendsHolder() {
         return friendsHolder;

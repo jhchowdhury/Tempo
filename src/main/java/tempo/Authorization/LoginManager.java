@@ -28,6 +28,7 @@ public class LoginManager {
         if(user.password.equals(encodedPassword)){
             Profile profile = DatabaseInteraction.getInstance().getDataFromDatabase("profiles", "profileID", user.profileID, Profile.class);
             Storage.getInstance().setUser(profile);
+            Storage.getInstance().setUsr(user);
             System.out.println("Successful");
             return true;
         } else {
