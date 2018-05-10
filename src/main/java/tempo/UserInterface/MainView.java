@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tempo.DataManagement.Storage;
@@ -175,6 +176,24 @@ public class MainView implements Initializable {
 
     @FXML
     private void helpButton(ActionEvent event) {
+
+        Stage popupwindow = new Stage();
+        popupwindow.initModality(Modality.APPLICATION_MODAL);
+        popupwindow.setTitle("Help");
+        Label infoLabel;
+        infoLabel = new Label(" \t Welcome! \n * To add an event, you can use 'Add Event' button. \n * You can indicate type of " +
+                "your event like permanent event, timeless event and timed event. \n * Timeless events are added into To-Do list.\n * Timed events " +
+                "are added into calendar. \n * Permanent events repeats every year. \n * You can also create a SMART EVENT! \n * Smart Event enables you" +
+                " arrange meetings with your friends or colleagues easily. \n * When Smart Event is arranged, other participants will be notified" +
+                " and it has to be confirmed by every participant. \n * To delete an evet, first click event on the calendar, then press 'Remove Event' button." +
+                "That's it! Enjoy!");
+        infoLabel.setFont(Font.font("Arial"));
+        VBox layout = new VBox(10);
+        layout.getChildren().add(infoLabel);
+        layout.setAlignment(Pos.TOP_CENTER);
+        Scene scene2 = new Scene(layout, 700, 300);
+        popupwindow.setScene(scene2);
+        popupwindow.showAndWait();
 
     }
 

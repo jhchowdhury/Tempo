@@ -1,6 +1,7 @@
 package tempo.UserInterface;
 
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,31 +23,44 @@ import java.util.ArrayList;
 public class ProfileView {
     //text field's name
     @FXML
-    private TextField txtProfileName;
+    private JFXTextField txtProfileName;
 
     @FXML
-    private TextField txtProfileSurname;
+    private JFXTextField txtProfileSurname;
 
     @FXML
-    private TextField txtProfileUsername;
+    private JFXTextField txtProfileEmail;
 
     @FXML
-    private TextField txtProfileEmail;
+    private JFXTextField txtInfoName;
 
     @FXML
-    private PasswordField txtProfilePassword;
+    private JFXTextField txtInfoSurname;
 
     @FXML
-    private PasswordField txtProfileRePassword;
+    private JFXTextField txtInfoUsername;
+
+    @FXML
+    private JFXTextField txtInfoEmail;
+
+
 
     @FXML
     private Label lblProfileChanges;
 
-    //method for logging out
+
+    /*
+    public ProfileView() {
+        txtInfoName.setText("Name");
+        txtInfoSurname.setText("Surname");
+        txtInfoUsername.setText("Username");
+        txtInfoEmail.setText("example123@mailmail.com");
+    }
+    */
 
     @FXML
     private void logOutFromDatabase(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/LoginPage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -57,7 +71,7 @@ public class ProfileView {
 
     @FXML
     private void goBackToCalendar(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/MainView.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -69,11 +83,11 @@ public class ProfileView {
 
     @FXML
     private void changeName (ActionEvent event) throws Exception {
-        //System.out.println(txtProfileName.getText());
-        //ArrayList<Profile> = DatabaseInteraction.getInstance().getDataListFromDatabase("profile","name", Storage.getInstance(), Profile.class);
         Storage.getInstance().getUser().name = txtProfileName.getText();
+        //to display
+        txtInfoName.setText(txtProfileName.getText());
+        //update
         CommunicationHelper.getInstance().updateProfile(Storage.getInstance().user);
-
     }
 
     //method for changing surname
@@ -82,8 +96,10 @@ public class ProfileView {
     private void changeSurname(ActionEvent event) throws Exception {
         //System.out.println(txtProfileSurname.getText());
         Storage.getInstance().getUser().surname = txtProfileSurname.getText();
+        //to display
+        txtInfoSurname.setText(txtProfileSurname.getText());
+        //update
         CommunicationHelper.getInstance().updateProfile(Storage.getInstance().user);
-
     }
 
     //method for changing username
@@ -99,6 +115,9 @@ public class ProfileView {
     private void changeEmail (ActionEvent event) throws Exception {
         //System.out.println(txtProfileEmail.getText());
         Storage.getInstance().getUser().email = txtProfileEmail.getText();
+        //to display
+        txtInfoEmail.setText(txtProfileEmail.getText());
+        //update
         CommunicationHelper.getInstance().updateProfile(Storage.getInstance().user);
     }
 
