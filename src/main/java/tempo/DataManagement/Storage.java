@@ -125,6 +125,29 @@ public class Storage{
         getUser().friends =  list.toArray(new String[0]);
         DatabaseInteraction.getInstance().updateDataFromDatabaseByID("profiles", getUser().profileID, getUser());
     }
+
+    public void removeFriend(String friend){
+        ArrayList<String> list;
+        if(getUser().friends == null){
+            return;
+        }else
+            list = new ArrayList<String>(Arrays.asList(getUser().friends));
+        list.remove(friend);
+        getUser().friends =  new String[list.size()];
+        getUser().friends =  list.toArray(new String[0]);
+        DatabaseInteraction.getInstance().updateDataFromDatabaseByID("profiles", getUser().profileID, getUser());
+    }
+
+    public void clear(){
+        Profile user = null;
+        String userKey = null;
+
+        ArrayList<Event> eventHolder = new ArrayList<>();
+        ArrayList<Profile> profileHolder = new ArrayList<>();
+        ArrayList<Notification> notificationHolder = new ArrayList<>();
+        ArrayList<Friend> friendsHolder = new ArrayList<>();
+    }
+
     public Notification getNotification (String notif) {
         return null;
     }

@@ -21,15 +21,15 @@
             <Font name="Kiona Regular" size="20.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtLoginUsername" alignment="CENTER" focusColor="WHITE" layoutX="20.0" layoutY="268.0" prefHeight="44.0" prefWidth="320.0" promptText="Username" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtLoginUsername" alignment="CENTER" focusColor="WHITE" layoutX="20.0" layoutY="268.0" prefHeight="44.0" prefWidth="320.0" promptText="Username" unFocusColor="#515151">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
-      <JFXPasswordField fx:id="txtLoginPassword" alignment="CENTER" focusColor="WHITE" layoutX="20.0" layoutY="325.0" prefHeight="44.0" prefWidth="320.0" promptText="Password" unFocusColor="BLACK">
+      <JFXPasswordField fx:id="txtLoginPassword" alignment="CENTER" focusColor="WHITE" layoutX="20.0" layoutY="325.0" prefHeight="44.0" prefWidth="320.0" promptText="Password" unFocusColor="#5b5b5b">
          <font>
             <Font size="20.0" />
          </font></JFXPasswordField>
-      <Label fx:id="lblLoginStatus" layoutX="20.0" layoutY="393.0" prefHeight="30.0" prefWidth="320.0" textFill="WHITE">
+      <Label fx:id="lblLoginStatus" alignment="CENTER" layoutX="20.0" layoutY="383.0" prefHeight="30.0" prefWidth="320.0" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

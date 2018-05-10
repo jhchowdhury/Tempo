@@ -24,8 +24,9 @@ public class FriendsController {
         NotificationCenter.getInstance().sendFriendRequest(username);
     }
 
-    public void removeFriend(){
-
+    public void removeFriend(String id){
+        Storage.getInstance().removeFriend(id);
+        NotificationCenter.getInstance().sendDeleteFriend(id);
     }
 
     public Friend getFriend(String username){
@@ -35,7 +36,7 @@ public class FriendsController {
     public void fillFriendList(){
         friendList.getItems().clear();
         for(Friend e: Storage.getInstance().getFriendsHolder()){
-            friendList.getItems().add(e.getProfile().name +" "+e.getProfile().surname);
+            friendList.getItems().add(e);
         }
     }
 }

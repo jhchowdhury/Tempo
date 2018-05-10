@@ -112,12 +112,23 @@ public class NotificationCenter {
         return true;
     }
 
+    public boolean sendDeleteFriend(String friend){
+        if(friend == null)
+            return false;
+        sendNotification("Friend Deletion", "You have one less friend!", friend, -2);
+        return true;
+    }
+
     public void refreshNotification(){
         CommunicationHelper.getInstance().fillNotificationHolder();
         for (Notification n: Storage.getInstance().getNotificationHolder()) {
             switch(n.notificationType){
                 case -1:
                     Storage.getInstance().addFriend(n.sender);
+                    deleteNotification(n.getKey());
+                    break;
+                case -2:
+                    Storage.getInstance().removeFriend(n.sender);
                     deleteNotification(n.getKey());
                     break;
             }
