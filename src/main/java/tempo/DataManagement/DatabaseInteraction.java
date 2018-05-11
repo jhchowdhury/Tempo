@@ -98,4 +98,10 @@ public class DatabaseInteraction {
         MongoCollection mongoCollection = jongo.getCollection(collection);
         mongoCollection.update(new ObjectId(identifier)).with(data);
     }
+
+    public <T> T getDataFromDatabaseByID(String collection, String identifier, Class<T> cls){
+        MongoCollection mongoCollection = jongo.getCollection(collection);
+        T object = mongoCollection.findOne(new ObjectId(identifier)).as(cls);
+        return object;
+    }
 }

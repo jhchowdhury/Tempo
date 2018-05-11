@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import tempo.DataManagement.DatabaseInteraction;
 import tempo.DataManagement.Storage;
 import tempo.EventManagement.CalendarManager;
 import tempo.EventManagement.Event;
@@ -23,6 +24,8 @@ import tempo.NotificationManagement.Notification;
 import tempo.NotificationManagement.NotificationCenter;
 import tempo.ProfileManagement.Friend;
 import tempo.ProfileManagement.FriendsController;
+import tempo.SmartEventManagement.SmartEvent;
+import tempo.SmartEventManagement.SmartEventController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,13 +65,19 @@ public class MainView implements Initializable {
             public void run()
             {
                 Platform.runLater(() -> {
-                    NotificationCenter.getInstance().refreshNotification();
+                    try {
+                        NotificationCenter.getInstance().refreshNotification();
+                        ec.refreshEvents();
+                    } catch (CloneNotSupportedException e) {
+                        e.printStackTrace();
+                    }
                     for (Notification n : Storage.getInstance().getNotificationHolder()) {
                         if (n != null) {
-                            if (n.sender != Storage.getInstance().getUser().profileID) {
+                            if (n.sender != Storage.getInstance().getUser().profileID && n.notificationType > 0) {
                                 //NotificationCenter.getInstance().displayNotifications(n.getKey());
                                     displayNotification(n.getKey());
                                     fc.refreshFriendList();
+                                    ec.refreshEvents();
                             }
                         }
                     }
@@ -76,7 +85,7 @@ public class MainView implements Initializable {
             }
 
         };
-        timer.scheduleAtFixedRate(task,5000l,5000l);
+        timer.scheduleAtFixedRate(task,5000l,10000l);
     }
 
     @FXML
@@ -99,6 +108,52 @@ public class MainView implements Initializable {
 
     @FXML
     private void smartEventAdd(ActionEvent event){
+        Stage popupwindow=new Stage();
+        popupwindow.initModality(Modality.APPLICATION_MODAL);
+        popupwindow.setTitle("Add Friend Window");
+        Label label1= new Label("Enter the username:");
+        ListView list1 = new ListView();
+        Label label2= new Label("Enter a title:");
+        TextField txt1 = new TextField();
+        Label label3= new Label("Enter the start date:");
+        DatePicker txt2 = new DatePicker();
+        Label label4= new Label("Enter the end date:");
+        DatePicker txt3 = new DatePicker();
+        Button button1= new Button("Create");
+        Label labelResult= new Label("");
+        list1.getItems().addAll(Storage.getInstance().getFriendsHolder());
+        button1.setOnAction(e -> {
+            SmartEvent se = new SmartEvent();
+            Event ev = new Event();
+            ev.name = txt1.getText();
+            ev.timeless = false;
+            ev.permanent = false;
+            ev.completed = false;
+            ev.type = 2;
+            Date start = new Date(txt2.getValue().getYear(), txt2.getValue().getMonthValue(), txt2.getValue().getDayOfMonth());
+            Date end = new Date(txt3.getValue().getYear(), txt3.getValue().getMonthValue(), txt3.getValue().getDayOfMonth());
+            ev.date = start;
+            ev.duration = end;
+            ev.owner = "";
+            DatabaseInteraction.getInstance().sendDataToDatabase("events", ev);
+            Friend friend;
+            if(!list1.getSelectionModel().isEmpty()) {
+                friend = (Friend) list1.getSelectionModel().getSelectedItem();
+                if (friend.getFriendID() != null) {
+                    se.setFriendID(friend.getFriendID());
+                    se.setEventID(ev.getKey());
+                    se.setOwnerId(Storage.getInstance().user.profileID);
+                    SmartEventController.getInstance().addSmartEvent(se);
+                }
+            }
+            popupwindow.close();
+        });
+        VBox layout= new VBox(10);
+        layout.getChildren().addAll(label1, list1, label2, txt1, label3, txt2, label4, txt3, button1, labelResult);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene1= new Scene(layout, 300, 150);
+        popupwindow.setScene(scene1);
+        popupwindow.showAndWait();
     }
 
     @FXML

@@ -5,6 +5,8 @@ import tempo.NotificationManagement.Notification;
 import tempo.ProfileManagement.Friend;
 import tempo.ProfileManagement.Profile;
 import tempo.EventManagement.Event;
+import tempo.SmartEventManagement.SmartEvent;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

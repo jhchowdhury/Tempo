@@ -5,7 +5,7 @@ import tempo.DataManagement.Storage;
 
 import java.util.*;
 
-public class Event {
+public class Event implements Cloneable {
     //for database
     @MongoObjectId
     @MongoId
@@ -32,5 +32,10 @@ public class Event {
     @Override
     public String toString() {
         return String.format(name);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

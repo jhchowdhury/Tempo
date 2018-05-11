@@ -14,6 +14,8 @@ import tempo.DataManagement.DatabaseInteraction;
 import tempo.DataManagement.Storage;
 import tempo.ProfileManagement.Friend;
 import tempo.ProfileManagement.Profile;
+import tempo.SmartEventManagement.SmartEvent;
+import tempo.SmartEventManagement.SmartEventController;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -46,14 +48,22 @@ public class NotificationCenter {
             Button button2 = new Button("Ignore");
 
             button1.setOnAction(e -> {
-                approveNotification(id);
-                refreshNotification();
+                try {
+                    approveNotification(id);
+                    refreshNotification();
+                } catch (CloneNotSupportedException e1) {
+                    e1.printStackTrace();
+                }
                 isShow = false;
                 popupwindow.close();
             });
             button2.setOnAction(e -> {
                 ignoreNotification(id);
-                refreshNotification();
+                try {
+                    refreshNotification();
+                } catch (CloneNotSupportedException e1) {
+                    e1.printStackTrace();
+                }
                 isShow = false;
                 popupwindow.close();
             });
@@ -82,7 +92,7 @@ public class NotificationCenter {
         return null;
     }
 
-    public void approveNotification(String id){
+    public void approveNotification(String id) throws CloneNotSupportedException {
         Notification n = getNotification(id);
         if(n != null) {
             if (n.receiver.equals(Storage.getInstance().getUser().profileID))
@@ -90,6 +100,10 @@ public class NotificationCenter {
             switch(n.notificationType){
                 case 1:
                     Storage.getInstance().addFriend(n.sender);
+                    break;
+                case 3:
+                    SmartEvent se = DatabaseInteraction.getInstance().getDataFromDatabaseByID("smartevents", n.message, SmartEvent.class);
+                    SmartEventController.getInstance().solidifySmartEvent(se);
                     break;
             }
         }
@@ -119,7 +133,7 @@ public class NotificationCenter {
         return true;
     }
 
-    public void refreshNotification(){
+    public void refreshNotification() throws CloneNotSupportedException {
         CommunicationHelper.getInstance().fillNotificationHolder();
         for (Notification n: Storage.getInstance().getNotificationHolder()) {
             switch(n.notificationType){
@@ -129,6 +143,12 @@ public class NotificationCenter {
                     break;
                 case -2:
                     Storage.getInstance().removeFriend(n.sender);
+                    deleteNotification(n.getKey());
+                    break;
+                case -3:
+                    SmartEvent se = DatabaseInteraction.getInstance().getDataFromDatabaseByID("smartevents", n.message, SmartEvent.class);
+                    SmartEventController.getInstance().solidifySmartEvent(se);
+                    DatabaseInteraction.getInstance().removeDataFromDatabasebyID("smartevents",se.getKey());
                     deleteNotification(n.getKey());
                     break;
             }
