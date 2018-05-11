@@ -44,6 +44,14 @@ public class NotificationCenter {
             popupwindow.initModality(Modality.APPLICATION_MODAL);
             popupwindow.setTitle(n.notificationName);
             Label label1 = new Label(n.message);
+            if(n.notificationType == 3){
+                for(Friend fr : Storage.getInstance().getFriendsHolder()){
+                    if(fr.getFriendID() == n.sender){
+                        label1.setText(fr.getName()+" wants to meet with you!");
+                    }
+                }
+            }
+
             Button button1 = new Button("Accept");
             Button button2 = new Button("Ignore");
 
