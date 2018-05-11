@@ -23,13 +23,12 @@ public class Storage{
     public Profile user;
     private String userKey;
     public User usr;
-    //Arraylists for ecent,profile,notification and friends
+
     private ArrayList<Event> eventHolder = new ArrayList<>();
     private ArrayList<Profile> profileHolder = new ArrayList<>();
     private ArrayList<Notification> notificationHolder = new ArrayList<>();
     private ArrayList<Friend> friendsHolder = new ArrayList<>();
 
-    //methods
 
     public User getUsr() {return usr;}
 
@@ -147,16 +146,13 @@ public class Storage{
     }
 
     public void clear(){
-        Profile user = null;
-        String userKey = null;
+        user = null;
+        userKey = null;
 
-        ArrayList<Event> eventHolder = new ArrayList<>();
-        ArrayList<Profile> profileHolder = new ArrayList<>();
-        ArrayList<Notification> notificationHolder = new ArrayList<>();
-        ArrayList<Friend> friendsHolder = new ArrayList<>();
+        eventHolder = new ArrayList<>();
+        profileHolder = new ArrayList<>();
+        notificationHolder = new ArrayList<>();
+        friendsHolder = new ArrayList<>();
     }
 
-    public Notification getNotification (String notif) {
-        return null;
-    }
 }
