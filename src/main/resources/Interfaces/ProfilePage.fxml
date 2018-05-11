@@ -49,27 +49,30 @@
                                     <Font name="Kiona Regular" size="36.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="txtInfoName" editable="false" layoutX="843.0" layoutY="153.0">
+                              <JFXTextField fx:id="txtInfoName" editable="false" layoutX="843.0" layoutY="153.0" prefHeight="43.0" prefWidth="350.0">
                                  <font>
-                                    <Font name="Adam" size="24.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtInfoSurname" editable="false" layoutX="842.0" layoutY="225.0">
+                              <JFXTextField fx:id="txtInfoSurname" editable="false" layoutX="842.0" layoutY="225.0" prefHeight="43.0" prefWidth="350.0">
                                  <font>
-                                    <Font name="Adam" size="24.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtInfoUsername" layoutX="842.0" layoutY="295.0">
+                              <JFXTextField fx:id="txtInfoUsername" layoutX="842.0" layoutY="295.0" prefHeight="43.0" prefWidth="350.0">
                                  <font>
-                                    <Font name="Adam" size="24.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtInfoEmail" layoutX="842.0" layoutY="361.0">
+                              <JFXTextField fx:id="txtInfoEmail" layoutX="842.0" layoutY="361.0" prefHeight="43.0" prefWidth="350.0">
                                  <font>
-                                    <Font name="Adam" size="24.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXButton layoutX="176.0" layoutY="420.0" onAction="#changePP" text="Change Profile Picture" />
+                              <JFXButton layoutX="144.0" layoutY="401.0" onAction="#changePP" prefHeight="39.0" prefWidth="227.0" style="-fx-background-color: #f24141;" text="Change Profile Picture" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font></JFXButton>
                               <ImageView fx:id="profPic" fitHeight="256.0" fitWidth="256.0" layoutX="161.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/blank-avatar.png" />
@@ -93,7 +96,7 @@
                                     <Font name="Adam" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="131.0" layoutY="400.0" text="Email:">
+                              <Label layoutX="131.0" layoutY="400.0" text="E-mail:">
                                  <font>
                                     <Font name="Adam" size="24.0" />
                                  </font>
@@ -103,17 +106,17 @@
                                     <Font name="Kiona Regular" size="36.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="txtProfileName" layoutX="327.0" layoutY="189.0" prefHeight="44.0" prefWidth="445.0">
+                              <JFXTextField fx:id="txtProfileName" layoutX="327.0" layoutY="189.0" prefHeight="44.0" prefWidth="445.0" promptText="Enter a new name!">
                                  <font>
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtProfileSurname" layoutX="327.0" layoutY="289.0" prefHeight="27.0" prefWidth="444.0">
+                              <JFXTextField fx:id="txtProfileSurname" layoutX="327.0" layoutY="289.0" prefHeight="27.0" prefWidth="444.0" promptText="Enter a new surname!">
                                  <font>
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXTextField fx:id="txtProfileEmail" layoutX="327.0" layoutY="389.0" prefHeight="44.0" prefWidth="440.0">
+                              <JFXTextField fx:id="txtProfileEmail" layoutX="327.0" layoutY="389.0" prefHeight="44.0" prefWidth="440.0" promptText="Enter a new e-mail">
                                  <font>
                                     <Font name="American Typewriter" size="24.0" />
                                  </font>

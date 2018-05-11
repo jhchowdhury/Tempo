@@ -1,6 +1,5 @@
 package tempo.UserInterface;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,18 +12,10 @@ import javafx.stage.Stage;
 import tempo.Authorization.LoginManager;
 import tempo.Authorization.RegisterManager;
 import com.jfoenix.controls.*;
-import tempo.DataManagement.Storage;
-import tempo.EventManagement.CalendarManager;
-import tempo.EventManagement.EventController;
-import tempo.NotificationManagement.Notification;
-import tempo.NotificationManagement.NotificationCenter;
-import tempo.ProfileManagement.FriendsController;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class AuthorizationView implements Initializable {
     //FXMLs
