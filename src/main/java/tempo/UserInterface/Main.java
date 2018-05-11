@@ -9,12 +9,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        Font.loadFont(getClass().getClassLoader().getResource("Fonts/IndieFlower.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getClassLoader().getResource("Fonts/Kiona-Itallic.ttf").toExternalForm(), 16);
+        Font.loadFont(getClass().getClassLoader().getResource("Fonts/Kiona-Regular.ttf").toExternalForm(), 16);
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Interfaces/StartMenu.fxml"));
         Scene start = new Scene(root);

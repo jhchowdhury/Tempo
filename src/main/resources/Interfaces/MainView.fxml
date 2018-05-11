@@ -97,7 +97,7 @@
                               <ListView fx:id="toDoList" layoutX="20.0" layoutY="50.0" prefHeight="260.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
                               <Label contentDisplay="CENTER" layoutX="70.0" layoutY="315.0" prefHeight="37.0" prefWidth="101.0" text="Friends" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="310.0">
                                  <font>
-                                    <Font name="Times New Roman" size="32.0" />
+                                    <Font name="Indie Flower" size="32.0" />
                                  </font>
                               </Label>
                               <ListView fx:id="friends" layoutX="20.0" layoutY="357.0" prefHeight="260.0" prefWidth="200.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="357.0" />
