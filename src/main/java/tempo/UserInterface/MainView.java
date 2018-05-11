@@ -110,7 +110,7 @@ public class MainView implements Initializable {
     private void smartEventAdd(ActionEvent event){
         Stage popupwindow=new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
-        popupwindow.setTitle("Add Friend Window");
+        popupwindow.setTitle("Arrange Meeting Window");
         Label label1= new Label("Enter the username:");
         ListView list1 = new ListView();
         Label label2= new Label("Enter a title:");
@@ -151,7 +151,7 @@ public class MainView implements Initializable {
         VBox layout= new VBox(10);
         layout.getChildren().addAll(label1, list1, label2, txt1, label3, txt2, label4, txt3, button1, labelResult);
         layout.setAlignment(Pos.CENTER);
-        Scene scene1= new Scene(layout, 300, 150);
+        Scene scene1= new Scene(layout, 300, 480);
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
     }
