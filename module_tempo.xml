@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_tempo" default="compile.module.tempo">
+  <dirname property="module.tempo.basedir" file="${ant.file.module_tempo}"/>
+  
+  <property name="module.jdk.home.tempo" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.tempo" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.tempo" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.tempo" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="tempo.output.dir" value="${module.tempo.basedir}/target/classes"/>
+  <property name="tempo.testoutput.dir" value="${module.tempo.basedir}/target/test-classes"/>
+  
+  <path id="tempo.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="tempo.module.production.classpath">
+    <path refid="${module.jdk.classpath.tempo}"/>
+    <path refid="library.maven:_org.jongo:jongo:1.3.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.7.3.classpath"/>
+    <path refid="library.maven:_de.undercouch:bson4jackson:2.7.0.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongo-java-driver:3.4.0.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:1.4.0.classpath"/>
+  </path>
+  
+  <path id="tempo.runtime.production.module.classpath">
+    <pathelement location="${tempo.output.dir}"/>
+    <path refid="library.maven:_org.jongo:jongo:1.3.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.7.3.classpath"/>
+    <path refid="library.maven:_de.undercouch:bson4jackson:2.7.0.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongo-java-driver:3.4.0.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:1.4.0.classpath"/>
+  </path>
+  
+  <path id="tempo.module.classpath">
+    <path refid="${module.jdk.classpath.tempo}"/>
+    <pathelement location="${tempo.output.dir}"/>
+    <path refid="library.maven:_org.jongo:jongo:1.3.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.7.3.classpath"/>
+    <path refid="library.maven:_de.undercouch:bson4jackson:2.7.0.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongo-java-driver:3.4.0.classpath"/>
+    <path refid="library.maven:_org.junit.jupiter:junit-jupiter-api:5.1.0.classpath"/>
+    <path refid="library.maven:_org.apiguardian:apiguardian-api:1.0.0.classpath"/>
+    <path refid="library.maven:_org.opentest4j:opentest4j:1.0.0.classpath"/>
+    <path refid="library.maven:_org.junit.platform:junit-platform-commons:1.1.0.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:1.4.0.classpath"/>
+  </path>
+  
+  <path id="tempo.runtime.module.classpath">
+    <pathelement location="${tempo.testoutput.dir}"/>
+    <pathelement location="${tempo.output.dir}"/>
+    <path refid="library.maven:_org.jongo:jongo:1.3.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.7.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.7.3.classpath"/>
+    <path refid="library.maven:_de.undercouch:bson4jackson:2.7.0.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongo-java-driver:3.4.0.classpath"/>
+    <path refid="library.maven:_org.junit.jupiter:junit-jupiter-api:5.1.0.classpath"/>
+    <path refid="library.maven:_org.apiguardian:apiguardian-api:1.0.0.classpath"/>
+    <path refid="library.maven:_org.opentest4j:opentest4j:1.0.0.classpath"/>
+    <path refid="library.maven:_org.junit.platform:junit-platform-commons:1.1.0.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:1.4.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.tempo">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.tempo">
+    <patternset refid="excluded.from.module.tempo"/>
+  </patternset>
+  
+  <path id="tempo.module.sourcepath">
+    <dirset dir="${module.tempo.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="tempo.module.test.sourcepath">
+    <dirset dir="${module.tempo.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.tempo" depends="compile.module.tempo.production,compile.module.tempo.tests" description="Compile module Tempo"/>
+  
+  <target name="compile.module.tempo.production" depends="register.custom.compilers" description="Compile module Tempo; production classes">
+    <mkdir dir="${tempo.output.dir}"/>
+    <javac2 destdir="${tempo.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.tempo}/javac">
+      <compilerarg line="${compiler.args.tempo}"/>
+      <bootclasspath refid="tempo.module.bootclasspath"/>
+      <classpath refid="tempo.module.production.classpath"/>
+      <src refid="tempo.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.tempo"/>
+    </javac2>
+    
+    <copy todir="${tempo.output.dir}">
+      <fileset dir="${module.tempo.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.tempo.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.tempo.tests" depends="register.custom.compilers,compile.module.tempo.production" description="compile module Tempo; test classes" unless="skip.tests">
+    <mkdir dir="${tempo.testoutput.dir}"/>
+    <javac2 destdir="${tempo.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.tempo}/javac">
+      <compilerarg line="${compiler.args.tempo}"/>
+      <bootclasspath refid="tempo.module.bootclasspath"/>
+      <classpath refid="tempo.module.classpath"/>
+      <src refid="tempo.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.tempo"/>
+    </javac2>
+    
+    <copy todir="${tempo.testoutput.dir}">
+      <fileset dir="${module.tempo.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.tempo" description="cleanup module">
+    <delete dir="${tempo.output.dir}"/>
+    <delete dir="${tempo.testoutput.dir}"/>
+  </target>
+</project>
