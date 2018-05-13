@@ -57,18 +57,6 @@
                         <Font name="Kiona Regular" size="20.0" />
                      </font>
                   </JFXButton>
-                  <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent;" text=" ">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/bell-icon-16608.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </MenuButton>
                   <JFXButton onAction="#logOutFromDatabase" text="LOG OUT" textFill="WHITE" underline="true">
                      <font>
                         <Font name="Kiona Regular" size="20.0" />
@@ -111,7 +99,6 @@
       </AnchorPane>
       <ToolBar layoutY="680.0" prefHeight="40.0" prefWidth="1280.0" style="-fx-background-color: #6f62fc;">
          <items>
-            <Label fx:id="dataBar" prefHeight="17.0" prefWidth="1180.0" />
             <JFXButton onAction="#helpButton" text="HELP(?)" textFill="WHITE" underline="true">
                <font>
                   <Font name="Kiona Regular" size="16.0" />

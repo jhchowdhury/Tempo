@@ -91,7 +91,6 @@ public class MainView implements Initializable {
     @FXML
     private void handleEventAddBtn(ActionEvent event) {
         // Button was clicked, do something...
-        dataBar.setText("Button Action\n");
         Popup pop = new Popup();
         pop.display();
     }
@@ -242,7 +241,7 @@ public class MainView implements Initializable {
         Label infoLabel;
         infoLabel = new Label(" \t Welcome! \n * To add an event, you can use 'Add Event' button. \n * You can indicate type of " +
                 "your event like permanent event, timeless event and timed event. \n * Timeless events are added into To-Do list.\n * Timed events " +
-                "are added into calendar. \n * Permanent events repeats every year. \n * You can also create a SMART EVENT! \n * Smart Event enables you" +
+                "are added into calendar. \n * Permanent events repeats every year. \n * You can also arrange a meeting! \n * Meeting enables you" +
                 " arrange meetings with your friends or colleagues easily. \n * When Smart Event is arranged, other participants will be notified" +
                 " and it has to be confirmed by every participant. \n * To delete an evet, first click event on the calendar, then press 'Remove Event' button." +
                 "That's it! Enjoy!");
